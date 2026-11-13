@@ -109,7 +109,10 @@ def shell_env(cfg: dict) -> str:
 def _get(cfg: dict, dotted: str):
     node = cfg
     for part in dotted.split("."):
-        node = node[part]
+        if isinstance(node, dict) and part in node:
+            node = node[part]
+        else:
+            return None
     return node
 
 
