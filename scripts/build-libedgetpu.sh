@@ -68,34 +68,38 @@ git -C "${WORKDIR}/src" archive --format=tar.gz \
   --prefix="${COMPONENT}-${SHA}/" \
   -o "${ARTIFACT_DIR}/sources-${COMPONENT}-${SHA}.tar.gz" HEAD
 
-# 4. Build the upstream cross image for this suite.
+build_and_run() {
+  local base_image="$1"
+  docker build --build-arg "IMAGE=${base_image}" -t "${tag}" "${WORKDIR}/src/docker"
+  docker run --rm \
+    -v "${WORKDIR}:/work" \
+    -v "${CACHE_DIR}:/cache" \
+    -v "${ROOT}/ci:/ci:ro" \
+    -e HOST_UID="$(id -u)" \
+    -e HOST_GID="$(id -g)" \
+    -e HOST_USER="$(id -un)" \
+    -e CPUS="${cpus}" \
+    -e ARCHES="${ARCHES}" \
+    -e VERSION="${VERSION}" \
+    -e SUITE="${SUITE}" \
+    -w /work \
+    "${tag}" \
+    bash /ci/entrypoint.sh /ci/libedgetpu-in-container.sh
+}
+
+# 4+5. Build the upstream cross image and compile/package inside it. On failure,
+# fall back to FALLBACK_IMAGE (e.g. ubuntu:24.04 for resolute) if configured.
 image_used="${IMAGE}"
-if ! docker build --build-arg "IMAGE=${IMAGE}" -t "${tag}" "${WORKDIR}/src/docker"; then
+if ! build_and_run "${IMAGE}"; then
   if [[ -n "${FALLBACK_IMAGE}" ]]; then
-    warn "image build failed for ${IMAGE}; retrying with ${FALLBACK_IMAGE}"
-    docker build --build-arg "IMAGE=${FALLBACK_IMAGE}" -t "${tag}" "${WORKDIR}/src/docker"
+    warn "build failed in ${IMAGE}; retrying with ${FALLBACK_IMAGE}"
+    build_and_run "${FALLBACK_IMAGE}"
     image_used="${FALLBACK_IMAGE}"
   else
-    die "image build failed for ${IMAGE} and no fallback image is configured"
+    die "build failed in ${IMAGE} and no fallback image is configured"
   fi
 fi
 [[ "${image_used}" == "${IMAGE}" ]] || warn "built with fallback image ${image_used}"
-
-# 5. Compile and package inside the container, as the runner user.
-docker run --rm \
-  -v "${WORKDIR}:/work" \
-  -v "${CACHE_DIR}:/cache" \
-  -v "${ROOT}/ci:/ci:ro" \
-  -e HOST_UID="$(id -u)" \
-  -e HOST_GID="$(id -g)" \
-  -e HOST_USER="$(id -un)" \
-  -e CPUS="${cpus}" \
-  -e ARCHES="${ARCHES}" \
-  -e VERSION="${VERSION}" \
-  -e SUITE="${SUITE}" \
-  -w /work \
-  "${tag}" \
-  bash /ci/entrypoint.sh /ci/libedgetpu-in-container.sh
 
 # 6. Collect artifacts.
 shopt -s nullglob
