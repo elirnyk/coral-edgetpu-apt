@@ -1,0 +1,13 @@
+diff --git a/driver/usb/usb_device_interface.h b/driver/usb/usb_device_interface.h
+index 238bca9..28a5e3f 100644
+--- a/driver/usb/usb_device_interface.h
++++ b/driver/usb/usb_device_interface.h
+@@ -17,6 +17,8 @@
+ 
+ #include "port/array_slice.h"
+ #include "port/integral_types.h"
++
++#include <cstdint>
+ #include "port/status.h"
+ #include "port/statusor.h"
+ 

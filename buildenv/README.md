@@ -22,3 +22,4 @@ Rules:
 | Patch | Applies to | Reason |
 |---|---|---|
 | `resolute-sources.patch` | `docker/update_sources.sh` (libedgetpu, suite `resolute`) | Upstream only special-cases `noble` for Ubuntu's deb822 sources. Ubuntu 26.04 needs the archive pinned to `amd64` and `ports.ubuntu.com` added for `arm64`/`armhf`. |
+| `resolute-uint8.patch` | `driver/usb/usb_device_interface.h` (libedgetpu, suite `resolute`) | Ubuntu's libstdc++ no longer exposes `uint8_t`/`uint16_t` transitively, while Debian still does. Adds `#include <cstdint>` so the upstream header compiles unchanged on Ubuntu. |
