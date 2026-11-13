@@ -30,13 +30,11 @@ if ! command -v fakeroot >/dev/null 2>&1; then
     { sudo apt-get update -qq && sudo apt-get install -y -qq fakeroot; }
 fi
 
-# Some Ubuntu images ship a toolchain without `ld` on PATH, which Bazel needs
-# at link time. Make sure binutils is present.
-if ! command -v ld >/dev/null 2>&1; then
-  echo ":: installing binutils"
-  sudo apt-get update -qq
-  sudo apt-get install -y -qq binutils
-fi
+# Bazel's linker step needs `ld` (provided by binutils). Some Ubuntu images do
+# not install it by default, so ensure it is present.
+echo ":: ensuring binutils is installed"
+sudo apt-get update -qq
+sudo apt-get install -y -qq binutils
 
 for cpu in ${CPUS}; do
   echo ":: bazel build for CPU=${cpu}"
