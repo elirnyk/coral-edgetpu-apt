@@ -8,6 +8,7 @@
 # `conf/` and `db/` are therefore also published. They contain no secrets:
 # the signing key lives only in the CI GNUPGHOME.
 #
-# The base directory itself is set with `reprepro -b <repo>`; only the output
-# directory needs configuring here.
-outdir ./
+# The base directory itself is set with `reprepro -b <repo>`; output files are
+# written relative to the basedir (the repository root), so no outdir override is
+# needed. An explicit `outdir .` would be resolved against the process working
+# directory instead, which is wrong in CI.
