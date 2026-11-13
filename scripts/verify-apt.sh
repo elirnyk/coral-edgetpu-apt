@@ -77,6 +77,12 @@ if [[ "${INSIDE}" == "1" ]]; then
   KEY_ONLY="${VERIFY_KEY_ONLY:-0}"
   FINGERPRINT="${VERIFY_FINGERPRINT:-}"
   PAGES_URL="${VERIFY_PAGES_URL:-}"
+
+  export DEBIAN_FRONTEND=noninteractive
+  if command -v apt-get >/dev/null 2>&1; then
+    apt-get update -qq
+    apt-get install -y -qq --no-install-recommends python3 curl ca-certificates gnupg gpgv
+  fi
 else
   SUITE="${OPT_SUITE}"
   ARCH="${OPT_ARCH}"
