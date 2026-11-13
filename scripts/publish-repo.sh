@@ -96,6 +96,7 @@ for changes in "${changes_files[@]}"; do
     fi
   done < <(awk '
     /^Checksums-Sha256:/ { insec=1; next }
+    /^Files:/ { insec=0 }
     insec && /^[^ ]/ { insec=0 }
     insec && NF>=3 { print $NF }
   ' "${changes}" | grep '\.deb$')
