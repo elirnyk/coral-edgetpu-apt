@@ -31,9 +31,9 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
     environment: apt-signing
-    env:
-      GNUPGHOME: ${{ runner.temp }}/coral-edgetpu-gnupg
     steps:
+      - name: Set GNUPGHOME
+        run: echo "GNUPGHOME=${RUNNER_TEMP}/coral-edgetpu-gnupg" >> "$GITHUB_ENV"
       - name: Resolve the build run id
         id: run
         run: |
