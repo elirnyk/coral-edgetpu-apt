@@ -1,0 +1,15 @@
+# Extra Bazel options for CI, installed as ~/.bazelrc by ci/entrypoint.sh.
+#
+# Bazel reads the workspace .bazelrc first and this file afterwards, so these
+# values win. They only tune resource use and add reusable caches; they do not
+# change what is built.
+
+# Keep the runner responsive and avoid the OOM killer during the TensorFlow
+# build. HOST_CPUS / HOST_RAM are Bazel's own placeholders.
+build --jobs=HOST_CPUS*.5
+build --local_ram_resources=HOST_RAM*.6
+
+# Action and repository caches live on the mounted cache volume (see
+# ci/entrypoint.sh) so repeated runs reuse compiled TensorFlow objects.
+build --disk_cache=/cache/bazel/disk
+build --repository_cache=/cache/bazel/repo

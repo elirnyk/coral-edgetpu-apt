@@ -1,0 +1,74 @@
+# Verify the published repository end to end: fetch the key, check its
+# fingerprint, run apt update, validate InRelease with gpgv, install the
+# packages, and prove a foreign key is rejected.
+#
+# Runs after a successful publish and weekly, so broken Pages deploys, expired
+# credentials and drifting distro images are caught between releases.
+name: verify
+
+on:
+  workflow_run:
+    workflows: [publish]
+    types: [completed]
+  schedule:
+    - cron: "23 5 * * 1"
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Limit to one suite
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # headers=1 also installs gasket-dkms and asserts the module builds
+        # against that suite's real kernel headers; it is the slow case, so it
+        # runs on the native amd64 jobs only.
+        include:
+          - {suite: trixie, arch: amd64, platform: "", headers: "1"}
+          - {suite: trixie, arch: arm64, platform: "linux/arm64", headers: "0"}
+          - {suite: trixie, arch: armhf, platform: "linux/arm/v7", headers: "0"}
+          - {suite: resolute, arch: amd64, platform: "", headers: "1"}
+          - {suite: resolute, arch: arm64, platform: "linux/arm64", headers: "0"}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Skip non-selected suite
+        id: gate
+        run: |
+          want="${{ inputs.suite }}"
+          if [[ -n "${want}" && "${want}" != "${{ matrix.suite }}" ]]; then
+            echo "skip=true" >>"$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >>"$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up QEMU
+        if: steps.gate.outputs.skip != 'true' && matrix.platform != ''
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
+        with:
+          platforms: all
+
+      - name: Verify
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          args=(--container --suite "${{ matrix.suite }}" --arch "${{ matrix.arch }}")
+          if [[ -n "${{ matrix.platform }}" ]]; then
+            args+=(--platform "${{ matrix.platform }}")
+          fi
+          if [[ "${{ matrix.headers }}" == "1" ]]; then
+            args+=(--headers)
+          fi
+          echo ":: verify-apt.sh ${args[*]}"
+          bash scripts/verify-apt.sh "${args[@]}"

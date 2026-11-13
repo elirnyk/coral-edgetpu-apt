@@ -1,0 +1,24 @@
+# Build and publish working directories (never committed; CI uses a scratch dir)
+/artifacts/
+/repo/
+/state/
+/src/
+/out/
+/dist/
+ci-signing.asc
+*.deb
+*.changes
+*.buildinfo
+*.dsc
+*.tar.*
+
+# Offline key material must never be committed.
+keys/
+*.key
+*.gpg
+*.asc
+!licenses/*.txt
+
+# Python bytecode
+__pycache__/
+*.py[cod]

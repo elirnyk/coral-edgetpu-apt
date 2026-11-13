@@ -1,0 +1,31 @@
+--- a/docker/update_sources.sh	2026-11-13 12:04:40.711482000 +0200
++++ b/docker/update_sources.sh	2026-11-13 12:04:49.245783700 +0200
+@@ -16,9 +16,17 @@
+ 
+ [[ "${NAME}" == "Ubuntu" ]] || exit 0
+ 
+-sed -i "s/deb\ /deb \[arch=amd64\]\ /g" /etc/apt/sources.list
++# --- Modified by coral-edgetpu-apt -------------------------------------------
++# Detect deb822 sources by the presence of the sources file instead of
++# special-casing "noble": Ubuntu 26.04 and later use deb822 too, and the old
++# branch left arm64/armhf pointing at archive.ubuntu.com, which does not serve
++# them. The sed is made tolerant because deb822 releases have no sources.list.
++# Change notice required by Apache-2.0 section 4(b).
++if [ -f /etc/apt/sources.list ]; then
++  sed -i "s/deb\ /deb \[arch=amd64\]\ /g" /etc/apt/sources.list
++fi
+ 
+-if [ ${UBUNTU_CODENAME} == "noble" ]; then
++if [ -f /etc/apt/sources.list.d/ubuntu.sources ]; then
+ 
+ echo "NOBLE"
+ 
+@@ -27,7 +35,7 @@
+ 
+ Types: deb
+ URIs: http://archive.ubuntu.com/ubuntu/
+-Suites: ${UBUNTU_CODENAME} ${UBUNTU_CODENAME}-updates ${UBUNTU_CODENAME}-backports
++Suites: ${UBUNTU_CODENAME} ${UBUNTU_CODENAME}-updates
+ Components: main universe restricted multiverse
+ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+ Architectures: amd64

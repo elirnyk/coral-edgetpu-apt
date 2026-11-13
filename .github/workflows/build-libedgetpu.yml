@@ -1,0 +1,165 @@
+# Build libedgetpu for one or more suites. Thin wrapper around build.yml: it
+# resolves the exact upstream commit/version, then calls the reusable build for
+# each suite.
+#
+# Manual use:
+#   gh workflow run build-libedgetpu.yml \
+#     -f sha=<full-sha> -f version=<upstream-version> -f suites=trixie,resolute
+#
+# poll-upstream.yml dispatches this workflow with a precomputed package_version.
+name: build-libedgetpu
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: Upstream commit to build (full SHA)
+        required: true
+        type: string
+      version:
+        description: Upstream changelog version (e.g. 16.0); fetched if empty
+        required: false
+        type: string
+        default: ""
+      package_version:
+        description: Full package version to use verbatim (overrides version)
+        required: false
+        type: string
+        default: ""
+      suites:
+        description: Comma-separated suites
+        required: false
+        type: string
+        default: trixie,resolute
+      ref:
+        description: Upstream branch (clone hint)
+        required: false
+        type: string
+        default: master
+      image:
+        description: Suite container image override
+        required: false
+        type: string
+        default: ""
+      fallback_image:
+        description: Fallback container image override
+        required: false
+        type: string
+        default: ""
+      arches:
+        description: Space-separated architectures override
+        required: false
+        type: string
+        default: ""
+      rebuild:
+        description: Force a +rebuildN suffix
+        required: false
+        type: string
+        default: ""
+      force:
+        description: Build even if the commit is already published
+        required: false
+        type: string
+        default: ""
+  workflow_call:
+    inputs:
+      sha:
+        required: true
+        type: string
+      version:
+        required: false
+        type: string
+        default: ""
+      package_version:
+        required: false
+        type: string
+        default: ""
+      suites:
+        required: false
+        type: string
+        default: trixie,resolute
+      ref:
+        required: false
+        type: string
+        default: master
+      image:
+        required: false
+        type: string
+        default: ""
+      fallback_image:
+        required: false
+        type: string
+        default: ""
+      arches:
+        required: false
+        type: string
+        default: ""
+      rebuild:
+        required: false
+        type: string
+        default: ""
+      force:
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      count: ${{ steps.plan.outputs.count }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fetch the published manifest
+        run: |
+          set -euo pipefail
+          mkdir -p state
+          url="$(python3 scripts/lib/config.py --get project.pages_url)/meta/manifest.json"
+          if curl -fsSL "$url" -o state/manifest.json; then
+            echo ":: manifest downloaded ($(wc -c <state/manifest.json) bytes)"
+          else
+            echo '{"schema":1,"builds":[],"upstreams":{}}' >state/manifest.json
+            echo ":: no published manifest yet; starting from an empty state"
+          fi
+
+      - name: Resolve the build plan
+        id: plan
+        env:
+          DISPATCH_COMPONENT: libedgetpu
+          DISPATCH_SHA: ${{ inputs.sha }}
+          DISPATCH_VERSION: ${{ inputs.version }}
+          DISPATCH_FINAL_VERSION: ${{ inputs.package_version }}
+          DISPATCH_SUITES: ${{ inputs.suites }}
+          DISPATCH_IMAGE: ${{ inputs.image }}
+          DISPATCH_FALLBACK_IMAGE: ${{ inputs.fallback_image }}
+          DISPATCH_ARCHES: ${{ inputs.arches }}
+          DISPATCH_REBUILD: ${{ inputs.rebuild }}
+          DISPATCH_FORCE: ${{ inputs.force }}
+          MANIFEST: state/manifest.json
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/poll_upstream.py
+
+  build:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    uses: ./.github/workflows/build.yml
+    with:
+      component: libedgetpu
+      suite: ${{ matrix.suite }}
+      sha: ${{ matrix.sha }}
+      version: ${{ matrix.version }}
+      image: ${{ matrix.image }}
+      fallback_image: ${{ matrix.fallback_image }}
+      arches: ${{ matrix.arches_str }}
+      ref: ${{ matrix.ref }}
+      upstream_version: ${{ matrix.upstream_version }}

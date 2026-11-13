@@ -1,0 +1,126 @@
+# Reusable build body. Not triggered directly: build-libedgetpu.yml and
+# build-gasket.yml call it, one matrix entry per (component, suite).
+#
+# It builds packages for one suite with the upstream recipe, records provenance
+# in build.json, and uploads the .deb/.changes plus the pristine upstream source
+# tarball as an artifact. Publishing is a separate workflow.
+name: build
+
+on:
+  workflow_call:
+    inputs:
+      component:
+        description: libedgetpu or gasket
+        required: true
+        type: string
+      suite:
+        description: APT suite (trixie, resolute, ...)
+        required: true
+        type: string
+      sha:
+        description: upstream commit to build
+        required: true
+        type: string
+      version:
+        description: suite-suffixed package version
+        required: true
+        type: string
+      image:
+        description: suite container image
+        required: true
+        type: string
+      fallback_image:
+        description: image to retry with if `image` cannot run the recipe
+        required: false
+        type: string
+        default: ""
+      headers:
+        description: kernel headers metapackage for the DKMS smoke test
+        required: false
+        type: string
+        default: ""
+      arches:
+        description: space-separated Debian architectures
+        required: false
+        type: string
+        default: ""
+      ref:
+        description: upstream branch (clone hint only)
+        required: false
+        type: string
+        default: ""
+      upstream_version:
+        description: upstream changelog version, for provenance
+        required: false
+        type: string
+        default: ""
+    outputs:
+      artifact:
+        description: name of the uploaded artifact
+        value: ${{ jobs.build.outputs.artifact }}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      artifact: ${{ steps.names.outputs.artifact }}
+    steps:
+      - name: Name the artifact
+        id: names
+        run: echo "artifact=${{ inputs.component }}-${{ inputs.suite }}" >>"$GITHUB_OUTPUT"
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # The Bazel/TensorFlow build needs far more than the default ~14 GB.
+      - name: Free disk space
+        if: inputs.component == 'libedgetpu'
+        uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          swap-storage: true
+
+      - name: Cache the Bazel output base
+        if: inputs.component == 'libedgetpu'
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ github.workspace }}/.cache
+          key: bazel-${{ inputs.suite }}-${{ inputs.sha }}
+          restore-keys: |
+            bazel-${{ inputs.suite }}-
+
+      - name: Build
+        env:
+          COMPONENT: ${{ inputs.component }}
+          SUITE: ${{ inputs.suite }}
+          SHA: ${{ inputs.sha }}
+          VERSION: ${{ inputs.version }}
+          IMAGE: ${{ inputs.image }}
+          FALLBACK_IMAGE: ${{ inputs.fallback_image }}
+          HEADERS: ${{ inputs.headers }}
+          ARCHES: ${{ inputs.arches }}
+          REF: ${{ inputs.ref }}
+          UPSTREAM_VERSION: ${{ inputs.upstream_version }}
+          CACHE_DIR: ${{ github.workspace }}/.cache
+        run: |
+          set -euo pipefail
+          case "${COMPONENT}" in
+            libedgetpu) bash scripts/build-libedgetpu.sh ;;
+            gasket)     bash scripts/build-gasket.sh ;;
+            *) echo "::error::unknown component ${COMPONENT}"; exit 1 ;;
+          esac
+
+      - name: Upload packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ steps.names.outputs.artifact }}
+          path: artifacts/${{ inputs.component }}-${{ inputs.suite }}/
+          if-no-files-found: error
+          retention-days: 14

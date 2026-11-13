@@ -1,0 +1,116 @@
+# Poll the upstream default branches and dispatch the build workflows when a
+# new commit is published. Runs daily and on demand.
+#
+# The orchestration is deliberately split: this workflow decides *what* to build
+# (resolving commits, versions and rebuild suffixes), and then dispatches
+# build-libedgetpu.yml / build-gasket.yml, so each component's build shows up as
+# its own run with its own badge and triggers publishing on completion.
+name: poll-upstream
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      component:
+        description: Limit to one component (libedgetpu | gasket)
+        required: false
+        type: string
+        default: ""
+      sha:
+        description: Build this exact upstream commit instead of the branch head
+        required: false
+        type: string
+        default: ""
+      version:
+        description: Use this upstream version instead of parsing the changelog
+        required: false
+        type: string
+        default: ""
+      suites:
+        description: "Comma-separated suite list (default: all)"
+        required: false
+        type: string
+        default: ""
+      rebuild:
+        description: Force a +rebuildN suffix
+        required: false
+        type: string
+        default: ""
+      force:
+        description: Build even when the upstream commit is unchanged
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      count: ${{ steps.plan.outputs.count }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fetch the published manifest
+        run: |
+          set -euo pipefail
+          mkdir -p state
+          url="$(python3 scripts/lib/config.py --get project.pages_url)/meta/manifest.json"
+          if curl -fsSL "$url" -o state/manifest.json; then
+            echo ":: manifest downloaded ($(wc -c <state/manifest.json) bytes)"
+          else
+            echo '{"schema":1,"builds":[],"upstreams":{}}' >state/manifest.json
+            echo ":: no published manifest yet; starting from an empty state"
+          fi
+
+      - name: Resolve the build plan
+        id: plan
+        env:
+          DISPATCH_COMPONENT: ${{ inputs.component }}
+          DISPATCH_SHA: ${{ inputs.sha }}
+          DISPATCH_VERSION: ${{ inputs.version }}
+          DISPATCH_SUITES: ${{ inputs.suites }}
+          DISPATCH_REBUILD: ${{ inputs.rebuild }}
+          DISPATCH_FORCE: ${{ inputs.force }}
+          MANIFEST: state/manifest.json
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/poll_upstream.py
+
+      - name: Summary
+        run: |
+          echo "### Build plan" >>"$GITHUB_STEP_SUMMARY"
+          echo "\`\`\`" >>"$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.plan.outputs.matrix }}' | python3 -m json.tool >>"$GITHUB_STEP_SUMMARY"
+          echo "\`\`\`" >>"$GITHUB_STEP_SUMMARY"
+
+  dispatch:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Dispatch ${{ matrix.component }} (${{ matrix.suite }})
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ matrix.sha }}
+          VERSION: ${{ matrix.upstream_version }}
+          PACKAGE_VERSION: ${{ matrix.version }}
+          SUITE: ${{ matrix.suite }}
+        run: |
+          set -euo pipefail
+          gh workflow run "build-${{ matrix.component }}.yml" \
+            -R "${GITHUB_REPOSITORY}" \
+            -f sha="${SHA}" \
+            -f version="${VERSION}" \
+            -f package_version="${PACKAGE_VERSION}" \
+            -f suites="${SUITE}"
+          echo ":: dispatched build-${{ matrix.component }}.yml for ${SUITE} ${PACKAGE_VERSION}"

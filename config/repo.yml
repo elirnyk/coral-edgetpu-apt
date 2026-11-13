@@ -1,0 +1,87 @@
+# Single source of truth for the APT repository.
+#
+# Read by scripts/lib/config.py (build matrices, reprepro `distributions`,
+# retention) and by scripts/poll_upstream.py (upstream tracking).
+#
+# Changing a suite here changes it everywhere: build matrices, reprepro
+# distributions, pruning and the rendered index page.
+
+schema: 1
+
+project:
+  name: coral-edgetpu-apt
+  owner: elirnyk
+  url: https://github.com/elirnyk/coral-edgetpu-apt
+  pages_url: https://elirnyk.github.io/coral-edgetpu-apt
+  origin: coral-edgetpu-apt
+  label: Coral Edge TPU APT (unofficial)
+  description: Unofficial Coral Edge TPU packages built from upstream source
+  maintainer: elirnyk <edgetpumaint@gmail.com>
+  # Published key files, relative to the repository root on gh-pages.
+  keyring: coral-edgetpu.gpg
+  keyring_asc: coral-edgetpu.asc
+  # Replaced by scripts/make-key.sh after the offline key ceremony.
+  # Publish refuses to run while this is still the placeholder.
+  fingerprint: FINGERPRINT
+
+upstreams:
+  libedgetpu:
+    repo: feranick/libedgetpu
+    ref: master
+    source_package: libedgetpu
+    license: Apache-2.0
+    # Set to a full commit SHA to freeze this component at a known-good build.
+    hold: null
+  gasket:
+    repo: erikpendragon/gasket-driver
+    ref: main
+    source_package: gasket-dkms
+    license: GPL-2.0
+    hold: null
+
+suites:
+  trixie:
+    family: debian
+    image: debian:trixie
+    description: Debian 13 (trixie)
+    arches: [amd64, arm64, armhf]
+    # Kernel headers metapackage used by the DKMS smoke test and by verify.
+    headers: linux-headers-amd64
+    # Matching kernel image, so a container has /lib/modules/<kver>/build for
+    # the gasket-dkms postinst to build against.
+    kernel_image: linux-image-amd64
+  resolute:
+    family: ubuntu
+    image: ubuntu:26.04
+    # Used only if the suite image cannot run upstream's build recipe.
+    fallback_image: ubuntu:24.04
+    description: Ubuntu 26.04 LTS (resolute)
+    arches: [amd64, arm64, armhf]
+    headers: linux-headers-generic
+    kernel_image: linux-image-generic
+
+components:
+  libedgetpu:
+    workflow_name: libedgetpu
+    # Binary packages produced by this component (for the published index page).
+    packages: [libedgetpu1-std, libedgetpu1-max, libedgetpu-dev]
+    # CPU names understood by the upstream Makefile.
+    cpus: [k8, armv7a, aarch64]
+    # arch -> upstream CPU
+    arch_cpu:
+      amd64: k8
+      arm64: aarch64
+      armhf: armv7a
+  gasket:
+    workflow_name: gasket
+    packages: [gasket-dkms]
+    # gasket-dkms is Architecture: all; one build serves every architecture.
+    arch_independent: true
+
+retention:
+  # Versions kept per package and suite (including the current one).
+  keep_versions: 3
+
+build:
+  # Release asset prefix for archived upstream source tarballs.
+  source_archive_prefix: sources

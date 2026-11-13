@@ -1,0 +1,46 @@
+# NOTICE
+
+This repository builds and distributes binary packages from the following upstream projects. The
+upstream projects retain all copyright in their code.
+
+## libedgetpu
+
+- Source: https://github.com/feranick/libedgetpu
+- Upstream: https://github.com/google-coral/libedgetpu
+- License: Apache License 2.0
+- Packages: `libedgetpu1-std`, `libedgetpu1-max`, `libedgetpu-dev`
+- Copyright: Google LLC and contributors. See the upstream `LICENSE` and `debian/copyright`.
+
+The Apache-2.0 license text is included in the installed packages via their Debian copyright file.
+
+## gasket-driver
+
+- Source: https://github.com/erikpendragon/gasket-driver
+- Upstream: https://github.com/feranick/gasket-driver, https://github.com/google/gasket-driver
+- License: GNU General Public License v2.0
+- Package: `gasket-dkms`
+- Copyright: Google LLC, Nicola Ferralis, and contributors. The complete corresponding source is
+  shipped inside the package under `/usr/src/gasket-<version>/`, as required by the GPL.
+
+## Trademarks
+
+"Coral" and "Edge TPU" are trademarks of Google LLC. This project is unofficial and is not
+affiliated with, endorsed by, or sponsored by Google LLC, Coral, Debian, Ubuntu, or the upstream
+maintainers. Package names are used only to describe compatibility.
+
+## This repository
+
+The automation, workflows, and documentation in this repository are licensed under the MIT License
+(see `LICENSE`). That license does not apply to the packaged upstream software.
+
+## Licence texts
+
+Full texts are included in this repository and published with the repository:
+
+- `LICENSE` — MIT (this project's automation and documentation)
+- `licenses/Apache-2.0.txt` — Apache-2.0 (libedgetpu)
+- `licenses/GPL-2.0.txt` — GPL-2.0 (gasket-driver)
+
+The built `libedgetpu*` packages reference Apache-2.0 from their Debian copyright file but do not
+embed the full text; this repository publishes it alongside the packages so recipients receive a copy
+with the distribution.

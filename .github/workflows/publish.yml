@@ -1,0 +1,109 @@
+# Import the artifacts of a finished build into the gh-pages APT repository,
+# sign the metadata, and push.
+#
+# Triggered automatically when build-libedgetpu or build-gasket finishes
+# successfully, or manually with a build run id. A single repository-wide
+# concurrency group serialises publishes so two build runs cannot race on
+# gh-pages.
+name: publish
+
+on:
+  workflow_run:
+    workflows: [build-libedgetpu, build-gasket]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Build run id whose artifacts should be published
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: apt-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    environment: apt-signing
+    env:
+      GNUPGHOME: ${{ runner.temp }}/coral-edgetpu-gnupg
+    steps:
+      - name: Resolve the build run id
+        id: run
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "id=${{ inputs.run_id }}" >>"$GITHUB_OUTPUT"
+          else
+            echo "id=${{ github.event.workflow_run.id }}" >>"$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends reprepro gnupg dpkg-dev
+
+      - name: Download build artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          rm -rf artifacts
+          mkdir -p artifacts
+          gh run download "${{ steps.run.outputs.id }}" -R "${GITHUB_REPOSITORY}" -D artifacts
+          find artifacts -maxdepth 2 -type f | sort
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: gh-pages
+          path: repo
+          fetch-depth: 0
+
+      - name: Import the signing subkey
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: bash scripts/import-key.sh
+
+      - name: Archive upstream sources as release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for tarball in artifacts/*/sources-*.tar.gz; do
+            stem="$(basename "${tarball%.tar.gz}")"   # sources-<component>-<sha>
+            tag="${stem#sources-}"                     # <component>-<sha>
+            if gh release view "${tag}" -R "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+              echo ":: release ${tag} already exists"
+              continue
+            fi
+            gh release create "${tag}" -R "${GITHUB_REPOSITORY}" \
+              --title "Upstream sources ${tag}" \
+              --notes "Pristine upstream source archive for the packages built from ${tag}." \
+              "${tarball}"
+            echo ":: created release ${tag}"
+          done
+
+      - name: Publish
+        run: bash scripts/publish-repo.sh --repo-dir repo --artifacts artifacts --push
+
+      - name: Summary
+        run: |
+          {
+            echo "### Published"
+            echo ""
+            echo "Source build run: [${{ steps.run.outputs.id }}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${{ steps.run.outputs.id }})"
+            echo ""
+            echo "Manifest: $(python3 -c 'import json,sys; d=json.load(open("repo/meta/manifest.json")); print(len(d["builds"]), "build records")' 2>/dev/null || echo "n/a")"
+          } >>"$GITHUB_STEP_SUMMARY"
