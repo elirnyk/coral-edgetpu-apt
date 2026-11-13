@@ -16,3 +16,63 @@ Description: DKMS source for the gasket driver
  Gasket (Google ASIC Software, Kernel Extensions, and Tools) provides
  support for Google ASICs, specificially the Coral EdgeTPU.
 
+Package: libedgetpu-dev
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+trixie
+Architecture: amd64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 29
+Depends: libedgetpu1-std (= 16.0tf2.19.1-1+trixie) | libedgetpu1 (= 16.0tf2.19.1-1+trixie)
+Homepage: https://coral.ai/
+Priority: optional
+Section: libdevel
+Filename: pool/main/libe/libedgetpu/libedgetpu-dev_16.0tf2.19.1-1+trixie_amd64.deb
+Size: 6512
+SHA256: 784a1ab5a099f7904493c72cde9de28fe0fd5ec7bc7d18342f7451ab45dbd5ab
+SHA1: 0081558b5ede8cadb6857e2556f3cf7206f54e0d
+MD5sum: de39f0d2e08837f3d7c91fa06e5e980e
+Description: Development files for libedgetpu
+ This package contains C++ Header files for libedgetpu.so
+
+Package: libedgetpu1-max
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+trixie
+Architecture: amd64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 1193
+Depends: libc6, libgcc1, libstdc++6, libusb-1.0-0, debconf (>= 0.5) | debconf-2.0
+Conflicts: libedgetpu1, libedgetpu1-legacy
+Provides: libedgetpu1 (= 16.0tf2.19.1-1+trixie)
+Multi-Arch: same
+Homepage: https://coral.ai/
+Priority: optional
+Section: misc
+Filename: pool/main/libe/libedgetpu/libedgetpu1-max_16.0tf2.19.1-1+trixie_amd64.deb
+Size: 393576
+SHA256: cd48cef24bbce3d28b6630b82a2afed5735a254a2b39c17539f54bb47f229ca4
+SHA1: 8be05f191618573ec246065ab41dbbd153bfd836
+MD5sum: d293a928d996988e38e0901b2fddec3c
+Description: Support library for Edge TPU
+ Support library (max speed) for the Edge TPU
+
+Package: libedgetpu1-std
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+trixie
+Architecture: amd64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 1193
+Depends: libc6, libgcc1, libstdc++6, libusb-1.0-0
+Conflicts: libedgetpu1, libedgetpu1-legacy
+Provides: libedgetpu1 (= 16.0tf2.19.1-1+trixie)
+Multi-Arch: same
+Homepage: https://coral.ai/
+Priority: optional
+Section: misc
+Filename: pool/main/libe/libedgetpu/libedgetpu1-std_16.0tf2.19.1-1+trixie_amd64.deb
+Size: 393188
+SHA256: f6dd680f54b48328d3698c6dc3a89c2b27819a72c356506ea4c4dd345a5f76b1
+SHA1: c97d700344a057eed806b917e33a9ed186991d1c
+MD5sum: cd5d3b7e81895a9ea8e46ec823d66410
+Description: Support library for Edge TPU
+ Support library (standard speed) for the Edge TPU
+

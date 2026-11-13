@@ -46,10 +46,26 @@
       "suite": "resolute",
       "upstream_version": "16.0tf2.19.1-1",
       "version": "16.0tf2.19.1-1+resolute"
+    },
+    {
+      "arches": [
+        "amd64",
+        "arm64",
+        "armhf"
+      ],
+      "component": "libedgetpu",
+      "date": "2026-11-13T13:37:39Z",
+      "image": "debian:trixie",
+      "patches": [],
+      "ref": "master",
+      "sha": "c38ac3f6d67dcb726e5a9339ac54527868c38598",
+      "suite": "trixie",
+      "upstream_version": "16.0tf2.19.1-1",
+      "version": "16.0tf2.19.1-1+trixie"
     }
   ],
   "schema": 1,
-  "updated": "2026-11-13T15:29:29Z",
+  "updated": "2026-11-13T15:34:53Z",
   "upstreams": {
     "gasket": {
       "date": "2026-11-13T12:55:38Z",
@@ -58,7 +74,7 @@
       "version": "1.0-19~modern2"
     },
     "libedgetpu": {
-      "date": "2026-11-13T15:26:40Z",
+      "date": "2026-11-13T13:37:39Z",
       "ref": "master",
       "sha": "c38ac3f6d67dcb726e5a9339ac54527868c38598",
       "version": "16.0tf2.19.1-1"

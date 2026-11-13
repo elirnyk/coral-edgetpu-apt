@@ -2,14 +2,14 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: trixie
 Codename: trixie
-Date: Fri, 13 Nov 2026 15:29:28 UTC
+Date: Fri, 13 Nov 2026 15:34:52 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
 MD5Sum:
- 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-amd64/Packages
- f109480d66c032a0ab82373559477364 511 main/binary-amd64/Packages.gz
- 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-amd64/Packages.xz
+ 3b84bc4e2245b7ffadf4114a90149209 2922 main/binary-amd64/Packages
+ cd1d327c5d4e6bd8b1485561f4a58ea1 1105 main/binary-amd64/Packages.gz
+ 1bba511bf2607baea0658ad3bd187e97 1172 main/binary-amd64/Packages.xz
  33c7c6bb760cf66002fd4d8dfe0ccf96 213 main/binary-amd64/Release
  3953978b25ee1d9341ae0cee27dd8154 757 main/binary-arm64/Packages
  f109480d66c032a0ab82373559477364 511 main/binary-arm64/Packages.gz
@@ -20,9 +20,9 @@ MD5Sum:
  4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-armhf/Packages.xz
  1763d0a4530d7a985793c3bf27279be2 213 main/binary-armhf/Release
 SHA1:
- f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-amd64/Packages
- 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-amd64/Packages.gz
- 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-amd64/Packages.xz
+ 7bea1d4e1501208e78b938dd64a8c75b8da324f4 2922 main/binary-amd64/Packages
+ 8836aec2d8459b15ce516f18f7b122ab0760b8cd 1105 main/binary-amd64/Packages.gz
+ b56649a190bfa5bfe4256381d3f565c84efbffad 1172 main/binary-amd64/Packages.xz
  c9ed252ae1e04b09b3d62150e85a0ba577b685b2 213 main/binary-amd64/Release
  f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-arm64/Packages
  50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-arm64/Packages.gz
@@ -33,9 +33,9 @@ SHA1:
  84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-armhf/Packages.xz
  8f6ba106c92ec0ed143df131072b89b13c330c7c 213 main/binary-armhf/Release
 SHA256:
- 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-amd64/Packages
- 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-amd64/Packages.gz
- 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-amd64/Packages.xz
+ 78b7157bd169e3428bf8d38ad8260c14aa20cce0bb95b46bf5601f13f36db17d 2922 main/binary-amd64/Packages
+ 4f1b5e6c9d362f38abd82bd59e1eebac8013d7a8b091ba8c9a0ee7cf3ce017a8 1105 main/binary-amd64/Packages.gz
+ 2535cb2cee7132775b1017a9d6fd583c836d62f3afc8dd94e02dc29c79c129cf 1172 main/binary-amd64/Packages.xz
  ca7981a27632cba2a8c8bf80a320f41c98c7a05e684a06f5755a47a8fc63a5cb 213 main/binary-amd64/Release
  1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-arm64/Packages
  96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-arm64/Packages.gz
