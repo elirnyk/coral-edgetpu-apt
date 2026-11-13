@@ -80,19 +80,27 @@ for changes in "${changes_files[@]}"; do
   [[ -n "${suite}" ]] || die "no Distribution field in ${changes}"
   python3 "${ROOT}/scripts/lib/verify_changes.py" "${changes}"
 
-  # Publishing is idempotent: if every binary in the .changes is already present
-  # with this version, skip it. reprepro refuses to include a version twice.
-  version="$(awk -F': ' '/^Version:/{print $2; exit}' "${changes}")"
-  binaries="$(awk -F': ' '/^Binary:/{print $2; exit}' "${changes}" | tr ',' ' ')"
-  existing="$(reprepro -b "${REPO_DIR}" --list-format '${package}|${version}\n' list "${suite}" 2>/dev/null || true)"
+  # Publishing is idempotent: skip the .changes if every .deb it references
+  # is already in the pool. A name+version check alone is not enough because
+  # the same source version ships one .deb per architecture.
   already=1
-  for binary in ${binaries}; do
-    if ! grep -qx "${binary}|${version}" <<<"${existing}"; then
+  while IFS= read -r debname; do
+    [[ -n "${debname}" ]] || continue
+    found=0
+    for candidate in "${REPO_DIR}"/pool/*/*/*/"${debname}"; do
+      if [[ -f "${candidate}" ]]; then found=1; break; fi
+    done
+    if [[ "${found}" == "0" ]]; then
       already=0
       break
     fi
-  done
-  if [[ "${already}" == "1" && -n "${version}" ]]; then
+  done < <(awk '
+    /^Checksums-Sha256:/ { insec=1; next }
+    insec && /^[^ ]/ { insec=0 }
+    insec && NF>=3 { print $NF }
+  ' "${changes}" | grep '\.deb$')
+  if [[ "${already}" == "1" ]]; then
+    version="$(awk -F': ' '/^Version:/{print $2; exit}' "${changes}")"
     log "$(basename "${changes}") is already published (${version}); skipping"
     skipped=$((skipped + 1))
     continue
