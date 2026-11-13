@@ -13,11 +13,3 @@ build --local_ram_resources=HOST_RAM*.6
 # ci/entrypoint.sh) so repeated runs reuse compiled TensorFlow objects.
 build --disk_cache=/cache/bazel/disk
 build --repository_cache=/cache/bazel/repo
-
-# Ubuntu's libstdc++ no longer provides uint8_t (and friends) transitively,
-# while Debian still does. Force-include <cstdint> so the upstream headers
-# compile on every supported suite without modifying upstream source. Disable
-# Bazel's layering check because the forced include is not a declared dep.
-build --cxxopt=-include
-build --cxxopt=cstdint
-build --features=-layering_check
