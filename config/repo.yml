@@ -22,7 +22,7 @@ project:
   keyring_asc: coral-edgetpu.asc
   # Replaced by scripts/make-key.sh after the offline key ceremony.
   # Publish refuses to run while this is still the placeholder.
-  fingerprint: FINGERPRINT
+  fingerprint: 22234DCCC8AAB3475B5F495CBB1DFCCA79E3A376
 
 upstreams:
   libedgetpu:

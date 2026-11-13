@@ -6,7 +6,7 @@
 |---|---|
 | UID | `Coral Edge TPU APT (elirnyk) <edgetpumaint@gmail.com>` |
 | Algorithm | RSA-4096 primary (certify only) + RSA-4096 signing subkey |
-| Fingerprint | `FINGERPRINT` (fill in after the offline key ceremony) |
+| Fingerprint | `22234DCCC8AAB3475B5F495CBB1DFCCA79E3A376` |
 | Expiry | none; rotation and revocation documented below |
 | Published | <https://elirnyk.github.io/coral-edgetpu-apt/coral-edgetpu.gpg> (binary keyring) |
 | | <https://elirnyk.github.io/coral-edgetpu-apt/coral-edgetpu.asc> (ASCII armor) |
@@ -32,7 +32,7 @@ is why the key must come from a trusted path and why `signed-by` must never be r
 gpg --show-keys --with-fingerprint /usr/share/keyrings/coral-edgetpu.gpg
 ```
 
-Compare the full fingerprint (not the short key ID) with `FINGERPRINT`. Compare it through a second
+Compare the full fingerprint (not the short key ID) with `22234DCCC8AAB3475B5F495CBB1DFCCA79E3A376`. Compare it through a second
 channel when possible (the repository's Git history, a signed release note, or the maintainer).
 
 Verify the key file hash:

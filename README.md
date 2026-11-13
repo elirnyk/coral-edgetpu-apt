@@ -45,7 +45,7 @@ Check the fingerprint before you trust it:
 
 ```sh
 gpg --show-keys --with-fingerprint /usr/share/keyrings/coral-edgetpu.gpg
-# Expected: FINGERPRINT
+# Expected: 22234DCCC8AAB3475B5F495CBB1DFCCA79E3A376
 ```
 
 The same key is available as ASCII armor at
