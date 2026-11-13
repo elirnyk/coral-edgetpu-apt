@@ -112,7 +112,7 @@ if [[ "${DRY_RUN}" == "1" ]]; then
 fi
 
 # ----------------------------------------------------------------- prune ----
-"${ROOT}/scripts/prune-repo.sh" --repo "${REPO_DIR}" --keep "${KEEP_VERSIONS}"
+bash "${ROOT}/scripts/prune-repo.sh" --repo "${REPO_DIR}" --keep "${KEEP_VERSIONS}"
 
 # -------------------------------------------------------- export and sign ----
 log "exporting and signing"

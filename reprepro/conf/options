@@ -10,4 +10,4 @@
 #
 # The base directory itself is set with `reprepro -b <repo>`; only the output
 # directory needs configuring here.
-outdir .
+outdir ./
