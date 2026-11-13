@@ -36,6 +36,10 @@ def verify(changes: str) -> list[str]:
     for line in lines[index + 1 :]:
         if not line.strip():
             break
+        # Checksum entries are indented; a non-indented line starts a new
+        # field (e.g. "Files:") and ends this block.
+        if not line.startswith((" ", "\\t")):
+            break
         parts = line.split()
         if len(parts) < 3:
             continue
