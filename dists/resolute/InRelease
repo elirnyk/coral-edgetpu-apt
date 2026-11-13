@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: resolute
 Codename: resolute
-Date: Fri, 13 Nov 2026 15:52:28 UTC
+Date: Fri, 13 Nov 2026 15:53:22 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Ubuntu 26.04 LTS (resolute)
@@ -50,17 +50,17 @@ SHA256:
  ad950be58184839e2e9db7069729d09009f2e92e643ee41616299a742d3b7139 224 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3MjwACgkQ/wYX4jnW
-5NqK2A/+Na+DABncYA6cQ5SdCWMvtEujiltgOo2SSJJgCPI1bD2koTIkW8C1IxTq
-xVMgj21X79fxCAZSIjlYCNf25hDhiZZTBcdDTxkZsF9uMkS5YqeD6z7HoS6voW1p
-ODuyfRnJgGPGkLRHXCSvj/kJ9jvZtTsLEyPXX1hri7brLiUPnozyrzld8oJqx15L
-T7LvntWlN9f9eOKGEnDPdbM82k1XfDihAFGTzLUTm8dA/h+scGFL8HgQ3ZcLLFXa
-DL3UFFw6XYzJq7+ciEBxEBGO056R8FTu+NWiKnoXwVyKyMx67YF5guJu3miL688H
-bZf3VeIjfCVKksoU9uKRjHyMqZiRXRASW1HH9EvAptx/J7ibvg4pMkrpwjXexMJQ
-PiC2Dl16itj+1o7hZJIgxNKUbPQVZo00akzhF/T6kCOWlbTG5Z4SHdrsRiWIuMgE
-MZdZLiw1D5iU7vA7D8beSeLZqTiwmgGkKlllyNBN+0k5EjXrmjKcvj+1LNxCvlRL
-ZVGVPJYCYTo12JAygL8lTpOLf3wNiEje9i3ztdds3WYENqQN6V95dbqRXaUSn9eM
-OXEsJifvnqNi+c60NuEpO3anSqx/cd1kfqqmE2H9l8FunqkI9dMjQlC2Wy0PDf90
-Wr6uu9OwxRDz7mQ6/C4x/CTvUTZPARnqy2B053rL/G0B/RPSOIg=
-=XLdF
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3MnIACgkQ/wYX4jnW
+5NoVVg//blU43E/KonNPzk+unx7QY1pqjSdFD1DFLWE98kSh+dych8z8OQGPrtGd
+L3Rie1Dc8BNJbj23fpHU3KgQzdvjPUR2nSsoGWJ7VlPPywg1CJcipL4NANBfUSHs
+F3aHuTKKkPNoNhpUCLstXEE3kg51GEAdFjXvQRRj88gESRvZ00fs8SvNft5Vr8z9
+lG5Lc3JpdsHvXscOzouggLpg0DrBJfNhbODJYha1Dz7bF/jRzTf/Bgn1nuq0y3lO
+IhKJCglbJ+aKRsUJlkbqPycH1beaGlWAQa/FYRIoZuq4d9Q9cepdVIZCs5obr9Hg
+K8VkHP+MuSYlBPG9xnkb+yUXIxr1D6mEC5ImyQ+6Nu1swogx2iOBpFMb8u+k9hBn
+CvdaM9apH+wqKN26omW9rVYHGEPD0s1vQguwu/LCqSt5qhZSQPfZ4Tpc0IJWYuxa
+BN9BOidm5vpELAl62Me+khU4tMD6Wxmmb9Ov+fl2+GLpf38ut43moMC+d/DTpmyw
+eCvAdw01io0dQQaDMNCH6+gTrT6+zP6PFnGCIMuK3upXRwRTUt1ji16FHemqWDMq
+JbQrfLRqT2laig9UAGsM7xSdOrpV5ycq8yPhYu+5PblSuJHIlbzER72ZSkTszof7
+iwj0uVe6ZFpnmnhGzSkrEzhqY3l7zX883V2zQ3WHo63mHnCHBs0=
+=DlRE
 -----END PGP SIGNATURE-----

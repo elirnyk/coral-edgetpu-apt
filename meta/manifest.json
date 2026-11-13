@@ -65,7 +65,7 @@
     }
   ],
   "schema": 1,
-  "updated": "2026-11-13T15:52:28Z",
+  "updated": "2026-11-13T15:53:22Z",
   "upstreams": {
     "gasket": {
       "date": "2026-11-13T12:55:38Z",
@@ -74,7 +74,7 @@
       "version": "1.0-19~modern2"
     },
     "libedgetpu": {
-      "date": "2026-11-13T15:26:40Z",
+      "date": "2026-11-13T13:37:39Z",
       "ref": "master",
       "sha": "c38ac3f6d67dcb726e5a9339ac54527868c38598",
       "version": "16.0tf2.19.1-1"
