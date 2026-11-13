@@ -25,7 +25,7 @@ echo ":: version=${VERSION} suite=${SUITE} headers=${HEADERS_PACKAGE}"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq
 apt-get install -y -qq --no-install-recommends \
-  debhelper dh-dkms dkms dpkg-dev build-essential ca-certificates python3
+  debhelper dh-dkms dkms dpkg-dev build-essential ca-certificates python3 git
 
 # Rewrite only debian/changelog metadata (suite suffix / rebuild suffix).
 python3 - "${VERSION}" "${SUITE}" <<'PY'
@@ -97,7 +97,11 @@ kernel_version="${kernel_version#linux-headers-}"
 
 echo ":: dkms build ${module_name}/${module_version} -k ${kernel_version}"
 dkms add "${module_name}/${module_version}"
-dkms build "${module_name}/${module_version}" -k "${kernel_version}"
+if ! dkms build "${module_name}/${module_version}" -k "${kernel_version}"; then
+  echo ":: dkms build failed; dumping make.log" >&2
+  find "/var/lib/dkms/${module_name}" -name 'make.log' -print -exec cat {} \; 2>/dev/null || true
+  exit 1
+fi
 dkms status
 
 echo ":: dkms status:"
