@@ -31,10 +31,16 @@ if ! command -v fakeroot >/dev/null 2>&1; then
 fi
 
 # Bazel's linker step needs `ld` (provided by binutils). Some Ubuntu images do
-# not install it by default, so ensure it is present.
+# not install it by default, so ensure it is present, and make sure it is on
+# PATH for collect2.
 echo ":: ensuring binutils is installed"
 sudo apt-get update -qq
 sudo apt-get install -y -qq binutils
+export PATH="/usr/bin:${PATH}"
+if command -v ld >/dev/null 2>&1 && command -v gcc >/dev/null 2>&1; then
+  gcc_dir="$(dirname "$(command -v gcc)")"
+  sudo ln -sf "$(command -v ld)" "${gcc_dir}/ld" 2>/dev/null || true
+fi
 
 for cpu in ${CPUS}; do
   echo ":: bazel build for CPU=${cpu}"
