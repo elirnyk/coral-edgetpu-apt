@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: resolute
 Codename: resolute
-Date: Fri, 13 Nov 2026 15:27:27 UTC
+Date: Fri, 13 Nov 2026 15:29:28 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Ubuntu 26.04 LTS (resolute)
@@ -50,17 +50,17 @@ SHA256:
  ad950be58184839e2e9db7069729d09009f2e92e643ee41616299a742d3b7139 224 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LF8ACgkQ/wYX4jnW
-5NqxHhAAkhrRW9NAAeDyGw8DJ5FkOvyaQS01sTf5ou9zvL47HYN9Hyy4Pv9OjTb8
-ShJaoO6EZaENQqyKAchzEU9s+/2j03Xbaux9hr5weDHWVkJKKzkxEEIG7ywFgRxe
-pU5iVkmBMYiJhB3FU1GnnEQTpmZb6YYmz015QlCR3pFrYi4cUHeWpkUfYPBwljn2
-K81qgL1UJYEOj2AtAP2DJSE+wuhPYIBIDrB1z2MT3EA43zRsL0RJjJYDSYEkUaMg
-6WLypGtHxC/v0VdUmWknDaHMzB2Z88QK+v+put/WjOf2QSaAN37H+53C9HlRvgGt
-IpqGPl8EXjU5GVWLX3cgJVGUOqxEcDyLwr4BOQlY8Qg/gawE5BYJKlR1mdsQzg0l
-5cWt9dZIKWndQ8z0D1z3MYIXoVsIHfmFxIou4GaG/OBrpCQ86UYou3/EQ+e+uaDq
-H4XGgBv1f78mBJOWy9vV+Dqq0EWrtd4r3ieZoA3wTyIPxmH9n7nFB3fhJ8sDxPSC
-mkGR85PMBBIIZfIKGiYpTN+y8mt3XYpOSA+ksVgTrLxuUmgm4hNSj8dgzruAzCtf
-yWkhdKE/NF2OC1HXHNt+5CZANdAXF6h6fS/BWg3xfAIH7m7hqhxwir7l8yHonH9U
-YbDtGsGtLbjJjmAA+WM+hAva1q3Y8clZvfv/nZcPxaHamtEtxOI=
-=BqJv
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LNkACgkQ/wYX4jnW
+5NortBAAh4/SiKJLiGmW6OrAyW5Em0xwz78lS2Ja9FYgMnhFtb0Agg6wZ+iLE4g9
+B1QCwwz5SgyRtt3lGZIHmxbKhiryIWiLqLde1+LRwL3jS+0zKTyIpYRlKyIf9PV9
+TWi8fCea0jUlZTCjPk53gtNma4LwYcNKXyWbuWCcjVj4gyunyzCuxPJ4t+cb7P1o
+jozktiEk8IKAJqN1K7B/fZsnzzhTru+iDnWTjvRRST037J88sXPOSJHgF2y8Wf7G
+4Sv7e9dWTRk/GDq4Q/r71d52Uz+Ag3VQHXC32I8/qnd6mM0X2XTSaJ9FPh7c9jLJ
+TLCWZe0A+3KrZxIzhb00pzbEA9vtiMNds43pRIdmC2Oyxugy0tAUgnCXomBoKcQA
+3sQSaBVSW9JIElG2J9zO5U1Vk9eG96WLv8FNwN7tQEvc+qv1HoM/ZPy4SEUqmUpZ
+46fKxdr/mrgQ+BBZ/Nk7MeNze93YkY8IdymIFXOxqD6uxDuP8DH7frGbdx3Tzgqo
+2tgpDNdDvUjrxD3nIuhfUAzymYDgCmbEe9zIo0KSACDXqCLQx1XFc4dxNbAiBMXe
+By7lxNoArT663UoZW1cnjuOYW9D65Q+LTQRUnuKerzlig68vxw5sAhZp5a4JiUSr
+rHo887q67+kA3oNfrxBJTt/kE1eKnx8pDM+ypIPaaL+ViYg0r14=
+=HfRD
 -----END PGP SIGNATURE-----

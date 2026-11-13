@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: trixie
 Codename: trixie
-Date: Fri, 13 Nov 2026 15:27:26 UTC
+Date: Fri, 13 Nov 2026 15:29:28 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
@@ -50,17 +50,17 @@ SHA256:
  e4703592b5504959be74c9efd0adaeda7ca87c1010cbe267cb63b2cb56d79ef2 213 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LF4ACgkQ/wYX4jnW
-5NqOcw/9GV3gF8WtdFtiY6S8PMk/ZRlOSWEqJH1E/3GxrJJSlq6+wdcuH7r6rlXs
-DbN6r89/THV3A8KfLaEU6Zo/Jms5Vo4RkNceswaaXZhFpL377PGsKvs3Bg89YnXA
-YBD03Ytj3HBS6cgWobk7Xl0OFa2nNJaPMDDCQSAWY62WiASXiAwU4CuLPIWonO4e
-6LQW5Ra7g2DaQnrof8vwwIkfMHsdhHdRBTsOYs/YDaR5ny9NHD2ANaE+VnARwT0C
-XWz8phybE6wFUUuaeIZlxlpsNLQxDCdU3T9Fiwm/jhYYSpDcH4vd6dbNYqRzWJCA
-dtw4t9R5uinPdcE7vdAyqnaJmxwxCGK8aXF0VWNI5Yq5lbbFmVW5tJSNGlwFj7r0
-oyxOEJhoBkZi5IVP9WVnsmP8s0OEeNyGtYI98tC68CEJC8fzBBzVpWW2TY99rGBa
-oqqamacDELgCPA+Fsvm3CqUqei/WzRCFJkSRVd6Ri2XZjNMfoKB6wvvKjhlc47x9
-pzkHA/wWnat4ynt09I8POrHVEva2HMt3vn58mA96dnExQLFj4P99XQir1GX92zNw
-1/AVnpeTaVy8wv4mDuD6RIguPWqa0xI5Dce712d+kGqJqK+QyKIDpyaTWQBA7qEe
-sPEqOCUle6yivYag2b8NX3vxX71Vp8cHR34gUwO1My/1L09ecC0=
-=Xnrm
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LNgACgkQ/wYX4jnW
+5NqHRg/9F/kV6w43JUp+IfSRKUPm3u7cYd2YJqXjbFR1UT3b3layKxSuR8LWpZ+H
+5Sg3vqrL3DH+ZwkxEENdd/dE9rLyoi04KF2KlnHR7R6WrgzkIbaPdRMAfSqCKPdr
+wNiBI+jbJRboy1vjqE6Z30Jw/wZAErNY5me/VSD3xiU3a7yC7iKOuL4fYZP5qjlK
+qRyP8TOSD894MIjJnHhLsmhn+2gAoCthgs9mtomDifcRAs3ytRQQhmFi2EJjSdXE
+B318b2/OtaZxLDsiGxPkoBBiR6QY+7uNhAz2J99e5JtLxaeSA7fuOpnj3+y2XuWI
+Dw/442ABoC0/nsjF78m8xaGbPvcIEdfCf4p9QtZfRtBMPwszzorWKjTdC1EdMWQk
+vOGw7DsonaZ7CpxJXuodnz6vheNL4x1E5NV9dMI3i0Cjycm/OGM11MY4msSNW3vn
+iTsKOSF3Mx8oi0KjRxnfLmc4y/015MeQuIpQud5pBpA1TSeOz8VOJrqLNPnf6nau
+oKCVxWwjRnjhFywt5OCicTkADNKFT2gZNIjKVXD8AKP3Qp3PsaEZH7JtZjCnddPB
+I01MPUsSPfzYgTQbu49rTZ9hUTZxOJgVZa+yrHT+QElxPO6707U/pKIsYnUQikZ4
+8sI4Z2TyRO3hH8ktOjSyCTVQbnHGKqH/3WTNKbVNf73wioyWi4k=
+=IWmS
 -----END PGP SIGNATURE-----
