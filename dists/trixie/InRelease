@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: trixie
 Codename: trixie
-Date: Fri, 13 Nov 2026 15:34:52 UTC
+Date: Fri, 13 Nov 2026 15:46:03 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
@@ -14,53 +14,53 @@ MD5Sum:
  cd1d327c5d4e6bd8b1485561f4a58ea1 1105 main/binary-amd64/Packages.gz
  1bba511bf2607baea0658ad3bd187e97 1172 main/binary-amd64/Packages.xz
  33c7c6bb760cf66002fd4d8dfe0ccf96 213 main/binary-amd64/Release
- 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-arm64/Packages
- f109480d66c032a0ab82373559477364 511 main/binary-arm64/Packages.gz
- 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-arm64/Packages.xz
+ 936868646f87168b031cf4d1556f9135 2922 main/binary-arm64/Packages
+ b3249166badacdcc5830eb415bf7eb18 1108 main/binary-arm64/Packages.gz
+ 460f5631d9d0e2d62088c00c9d1ae2cb 1176 main/binary-arm64/Packages.xz
  ed029a4fd6883a52cba9a002285d9cd4 213 main/binary-arm64/Release
- 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-armhf/Packages
- f109480d66c032a0ab82373559477364 511 main/binary-armhf/Packages.gz
- 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-armhf/Packages.xz
+ 686a184e43ac7ddd34c0315444399357 2920 main/binary-armhf/Packages
+ b0aac9b8ac2cb1843293485d957f7f9a 1108 main/binary-armhf/Packages.gz
+ 43a64ba7a4a13e80eb109d6ca1ed2859 1172 main/binary-armhf/Packages.xz
  1763d0a4530d7a985793c3bf27279be2 213 main/binary-armhf/Release
 SHA1:
  7bea1d4e1501208e78b938dd64a8c75b8da324f4 2922 main/binary-amd64/Packages
  8836aec2d8459b15ce516f18f7b122ab0760b8cd 1105 main/binary-amd64/Packages.gz
  b56649a190bfa5bfe4256381d3f565c84efbffad 1172 main/binary-amd64/Packages.xz
  c9ed252ae1e04b09b3d62150e85a0ba577b685b2 213 main/binary-amd64/Release
- f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-arm64/Packages
- 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-arm64/Packages.gz
- 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-arm64/Packages.xz
+ 5f3097e1c50c26dee5726e56a2289e4eea1c9856 2922 main/binary-arm64/Packages
+ 0d37f3db1ae380742419442e0fc5ac34c8ccb918 1108 main/binary-arm64/Packages.gz
+ b1c6566802725cba116252aecd321ed5a12e2a27 1176 main/binary-arm64/Packages.xz
  2fe1497358cd4d16c7f8c826f7c0ff6306b585ed 213 main/binary-arm64/Release
- f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-armhf/Packages
- 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-armhf/Packages.gz
- 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-armhf/Packages.xz
+ 0143f2fef9ea13748e5deca190d374d25e073666 2920 main/binary-armhf/Packages
+ fa02f0e086d9cdb76ab6753f47aec76da3e53a50 1108 main/binary-armhf/Packages.gz
+ 2a9211efeefdca548829bf2163ff19fe9cee3099 1172 main/binary-armhf/Packages.xz
  8f6ba106c92ec0ed143df131072b89b13c330c7c 213 main/binary-armhf/Release
 SHA256:
  78b7157bd169e3428bf8d38ad8260c14aa20cce0bb95b46bf5601f13f36db17d 2922 main/binary-amd64/Packages
  4f1b5e6c9d362f38abd82bd59e1eebac8013d7a8b091ba8c9a0ee7cf3ce017a8 1105 main/binary-amd64/Packages.gz
  2535cb2cee7132775b1017a9d6fd583c836d62f3afc8dd94e02dc29c79c129cf 1172 main/binary-amd64/Packages.xz
  ca7981a27632cba2a8c8bf80a320f41c98c7a05e684a06f5755a47a8fc63a5cb 213 main/binary-amd64/Release
- 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-arm64/Packages
- 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-arm64/Packages.gz
- 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-arm64/Packages.xz
+ d765731ef994528e3e8eb7109cf5e99bc30b4d5792edee3c98d80fd4f20b43a2 2922 main/binary-arm64/Packages
+ 3c6db20224c04b1e71b56ec5bc0a4780803e2760ce68c69e71ab14c56f03b517 1108 main/binary-arm64/Packages.gz
+ e9fc57b0edf10b518748f044e29dee7a08b6ad7b0c15385cd7d305ab084ad5e9 1176 main/binary-arm64/Packages.xz
  fd8945335271a13d5e6ba317f13222d7375793342cf3a5d5f09d8b082bafa9f3 213 main/binary-arm64/Release
- 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-armhf/Packages
- 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-armhf/Packages.gz
- 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-armhf/Packages.xz
+ 223491271920c9885a438bba25891b7ba6c95f50c4e8cda6474fdddfb34f57d8 2920 main/binary-armhf/Packages
+ 2e2f17e5b60424b9b712fa59c17fcd96ad71566d6cfeb0be68c35617fb8786bf 1108 main/binary-armhf/Packages.gz
+ 02cd052269d1b35df60376cdc6c35b7e6c58f5d8d785e2ee02feef27377ee904 1172 main/binary-armhf/Packages.xz
  e4703592b5504959be74c9efd0adaeda7ca87c1010cbe267cb63b2cb56d79ef2 213 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3Lh0ACgkQ/wYX4jnW
-5NriYQ/9HkAtdFIw9xujn5EizpN9d3y4ble35WTQLmJB/ZwqJMo5SJueh5zc0MHT
-ifg8gZegglUWRAjcVzuuhaxf6+/iJ2Y8v+n7HkjarSgEMlo8uKXZREA4o0IzGnGr
-C/YgiP61szM62BRRp+BtYLm3BccyufLJs5W87YsvAJJ99tMkR5kHPvbVD2spDcOP
-TNG5OZx7vwC4CZClEqhLbgY+TLK9+R3EoGqg2hxfybfH5GiwY7yW+EvkdLy19Vp/
-OuReN7HON3DDFMSFttkINOFbWO6R9PAhyjYGI9NbcPU+RvtYvosyXK1OHuZPbLWV
-1xyDh+I5hhJFhGVhAYjDAxqroZQ136/HXYZtYmThmKbJf/0BHcouBBQ7PN8eC/Yu
-H6boFzFlEsqlu+bGvJbvScYC8dbMJMxEedgd9+WI7GdIY5ccmwUQgb2q8sRDKVjY
-ttH17IZkN+dBaMjc6zmU2KQ/I0bSKod8TwFCuapxHpExoT/mgJDA7IwEkEqbcGp+
-fvA76KQ/sa0VHkDPrjN9VnJAF/nX4Xjc9oRLA6UGE2NKqXwtvbTMNl4XiR/tnnKy
-JTTehEqQ51Jctq2Ibr3f9UHbBFX53XAQd90eftfamICD0KrO4p278hLSydi+Cpng
-2TNc40efE8AyzZ15ig9NedTwGH9yC8skLhnpILkSXicunN6aJWo=
-=HBA/
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3MLsACgkQ/wYX4jnW
+5NqdXA/9EutaXopStbZg7hc8IzznAn1xK7192cUCttby4SxeBmXsNT5WJ0hkyTPp
+ykgonn4rHQmYApwb5MmUjV6qNfV/Boug6yGVS2lummkpZaDfN0NAtbbW3QhW7a9W
+o9WDoa4ddgTHvE0sJAKuMmKZSQ7FmZbAguqablN5OV2sP0xkNROg6/ch0uYeJB8A
+/etdbaNM8B6E2UXfGXULyISaQyDKunmMAjb1vKWotITv4brZgkRbwNRMpG/6BzCn
+46TB7Z+l+CcTqeLRQI5UmAczaJz4GJH5j1CpfeE3GT/MRwQabW6t31pVKNowoSo8
+G8k6njBDH/Ifee7dOMzhBhRtQkS3Hx5r1qFh8m2QrSOM0GWJKtdTJKotEql5+E66
+qERrEZuzRWLYyauWakIB6jnkEfuuIJ7t61N2arTt3p9Q5Zusa+wi2u1IgYCHag9C
+sZpz8WiLA9VBmKm+6OXY650gpgpUID0KvfBekIHd7a6HJKK6M+Y82QDtwH6c69aq
+WRG5viBZzb12FbMBIX1tLd7oFve/7Cws14iZ7et71AQese0y4yXaqZXYxspQ+C0L
+/mTPOCsaG0AX5zzt18T1lsW/2VysMT+PW5o9xbEIKtBdZhLAHJQxd7MvxC7PmeIe
+n94iXCjDedxeIawmgyGwNglswGt7CiyzNIQ5ntrXoob+vRIziPc=
+=qyWF
 -----END PGP SIGNATURE-----
