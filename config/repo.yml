@@ -53,8 +53,10 @@ suites:
   resolute:
     family: ubuntu
     image: ubuntu:26.04
-    # Used only if the suite image cannot run upstream's build recipe.
-    fallback_image: ubuntu:24.04
+    # Used only if the suite image cannot run upstream's build recipe. Ubuntu
+    # 24.04/26.04 both fail the Bazel build (missing ld / layering check), so
+    # fall back to Debian 13, which builds cleanly and is binary-compatible.
+    fallback_image: debian:trixie
     description: Ubuntu 26.04 LTS (resolute)
     arches: [amd64, arm64, armhf]
     headers: linux-headers-generic
