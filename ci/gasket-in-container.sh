@@ -71,7 +71,13 @@ apt-get install -y -qq --no-install-recommends "${HEADERS_PACKAGE}"
 # The headers package alone does not create /lib/modules/<kver>, which DKMS
 # needs for its build directory. Point it at the installed headers so the
 # module can compile without a full kernel image.
-headers_dir="$(ls -d /usr/src/linux-headers-* | grep -v -- '-common$' | head -1)"
+#
+# Pick the header tree that actually carries the build scripts (Makefile,
+# scripts/): on Debian that is linux-headers-<ver>-<arch>, on Ubuntu
+# linux-headers-<ver>-generic. The bare/common trees lack scripts/.
+headers_dir="$(ls -d /usr/src/linux-headers-*/scripts 2>/dev/null | head -1)"
+headers_dir="${headers_dir%/scripts}"
+[[ -n "${headers_dir}" && -d "${headers_dir}" ]] || { echo ":: no buildable kernel headers found" >&2; exit 1; }
 kernel_version="${headers_dir#/usr/src/linux-headers-}"
 mkdir -p "/lib/modules/${kernel_version}"
 if [[ ! -e "/lib/modules/${kernel_version}/build" ]]; then
@@ -90,10 +96,7 @@ apt-get install -y -qq --no-install-recommends /work/out/gasket-dkms_*.deb
 src_dir="$(ls -d /usr/src/gasket-* | head -1)"
 module_name="$(sed -n 's/^PACKAGE_NAME="\(.*\)"/\1/p' "${src_dir}/dkms.conf")"
 module_version="$(sed -n 's/^PACKAGE_VERSION="\(.*\)"/\1/p' "${src_dir}/dkms.conf")"
-kernel_version="$(
-  basename "$(ls -d /usr/src/linux-headers-* | grep -v -- '-common$' | head -1)"
-)"
-kernel_version="${kernel_version#linux-headers-}"
+kernel_version="${headers_dir#/usr/src/linux-headers-}"
 
 echo ":: dkms build ${module_name}/${module_version} -k ${kernel_version}"
 dkms add "${module_name}/${module_version}"
