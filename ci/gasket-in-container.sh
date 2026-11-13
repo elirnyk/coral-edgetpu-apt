@@ -19,6 +19,11 @@ set -euo pipefail
 
 cd /work/src
 
+# Start from a clean artifact directory so a retried build cannot mix stale
+# .deb/.changes files from a previous attempt.
+rm -rf /work/out
+mkdir -p /work/out
+
 echo ":: upstream commit $(git rev-parse HEAD)"
 echo ":: version=${VERSION} suite=${SUITE} headers=${HEADERS_PACKAGE}"
 
@@ -26,6 +31,9 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq
 apt-get install -y -qq --no-install-recommends \
   debhelper dh-dkms dkms dpkg-dev build-essential ca-certificates python3 git
+
+# Restore the pristine changelog so a retried build does not stack entries.
+git checkout -- debian/changelog 2>/dev/null || true
 
 # Rewrite only debian/changelog metadata (suite suffix / rebuild suffix).
 python3 - "${VERSION}" "${SUITE}" <<'PY'

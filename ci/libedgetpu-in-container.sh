@@ -14,6 +14,11 @@ set -euo pipefail
 
 cd /work/src
 
+# Start from a clean artifact directory so a retried build cannot mix stale
+# .deb/.changes files from a previous attempt.
+rm -rf /work/out
+mkdir -p /work/out
+
 echo ":: upstream commit $(git rev-parse HEAD)"
 echo ":: cpus=${CPUS} arches=${ARCHES} version=${VERSION} suite=${SUITE}"
 
@@ -29,6 +34,9 @@ for cpu in ${CPUS}; do
   echo ":: bazel build for CPU=${cpu}"
   make CPU="${cpu}" libedgetpu
 done
+
+# Restore the pristine changelog so a retried build does not stack entries.
+git checkout -- debian/changelog 2>/dev/null || true
 
 # Rewrite only debian/changelog metadata: the suite suffix (and any git or
 # rebuild suffix). No upstream source or packaging logic is touched.
