@@ -43,10 +43,11 @@ mkdir -p "${WORKDIR}/src" "${WORKDIR}/out" "${ARTIFACT_DIR}"
 # 1. Pinned upstream checkout.
 fetch_upstream "${UPSTREAM_GASKET_REPO}" "${SHA}" "${WORKDIR}/src" "${REF}" >/dev/null
 
-# 2. Build-environment patches (ephemeral checkout only).
-PATCHES="$(apply_buildenv_patches "${ROOT}" "${SUITE}" "${WORKDIR}/src")"
+# gasket has no build-environment patches (those target libedgetpu's Docker
+# sources); keep PATCHES empty for the manifest.
+PATCHES=""
 
-# 3. Pristine source tarball for the provenance release.
+# 2. Pristine source tarball for the provenance release.
 git -C "${WORKDIR}/src" archive --format=tar.gz \
   --prefix="${COMPONENT}-${SHA}/" \
   -o "${ARTIFACT_DIR}/sources-${COMPONENT}-${SHA}.tar.gz" HEAD

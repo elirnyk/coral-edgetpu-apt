@@ -68,6 +68,16 @@ fi
 echo ":: DKMS compile smoke test against ${HEADERS_PACKAGE}"
 apt-get install -y -qq --no-install-recommends "${HEADERS_PACKAGE}"
 
+# The headers package alone does not create /lib/modules/<kver>, which DKMS
+# needs for its build directory. Point it at the installed headers so the
+# module can compile without a full kernel image.
+headers_dir="$(ls -d /usr/src/linux-headers-* | grep -v -- '-common$' | head -1)"
+kernel_version="${headers_dir#/usr/src/linux-headers-}"
+mkdir -p "/lib/modules/${kernel_version}"
+if [[ ! -e "/lib/modules/${kernel_version}/build" ]]; then
+  ln -s "${headers_dir}" "/lib/modules/${kernel_version}/build"
+fi
+
 # Let the package's postinst stay out of the way: it builds for the kernels it
 # finds in /lib/modules and installs them, which is what the verify job
 # exercises against the published repository. Here the goal is only to prove
@@ -90,11 +100,25 @@ dkms add "${module_name}/${module_version}"
 dkms build "${module_name}/${module_version}" -k "${kernel_version}"
 dkms status
 
+echo ":: dkms status:"
+dkms status || true
+echo ":: contents of /var/lib/dkms/${module_name}:"
+find "/var/lib/dkms/${module_name}" -type f 2>/dev/null | head -50 || true
+
 built=0
 while IFS= read -r module; do
   echo ":: built ${module}"
   built=$((built + 1))
-done < <(find "/var/lib/dkms/${module_name}" \( -name 'gasket.ko' -o -name 'apex.ko' \))
+done < <(find "/var/lib/dkms/${module_name}" \( -name 'gasket.ko' -o -name 'apex.ko' -o -name 'gasket.ko.*' -o -name 'apex.ko.*' \))
+
+# DKMS 3.x stores built modules under a per-kernel directory; fall back to a
+# broader search in case the layout differs.
+if [[ "${built}" -lt 2 ]]; then
+  while IFS= read -r module; do
+    echo ":: found ${module}"
+    built=$((built + 1))
+  done < <(find /var/lib/dkms /lib/modules -type f \( -name 'gasket.ko*' -o -name 'apex.ko*' \) 2>/dev/null)
+fi
 
 if [[ "${built}" -lt 2 ]]; then
   echo ":: error: expected gasket.ko and apex.ko, found ${built}" >&2
