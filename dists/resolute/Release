@@ -2,7 +2,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: resolute
 Codename: resolute
-Date: Fri, 13 Nov 2026 15:46:04 UTC
+Date: Fri, 13 Nov 2026 15:52:28 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Ubuntu 26.04 LTS (resolute)
@@ -11,37 +11,37 @@ MD5Sum:
  3c6c4bd284a427a7aae386efbc8e82dc 1104 main/binary-amd64/Packages.gz
  99b6f259de8d0ee643353d90955a96c4 1172 main/binary-amd64/Packages.xz
  23f14e94d62c7ce58671f2ff0d5fbdb4 224 main/binary-amd64/Release
- 3ca3d452fc88155bc01ca83042f51c92 761 main/binary-arm64/Packages
- b76be0c5fcc6ac21306d8bcc9a0a3060 509 main/binary-arm64/Packages.gz
- e959a0871f4be9a86062d575a0615d82 588 main/binary-arm64/Packages.xz
+ 77ec9d3cbe36bf104d9a850880782d76 2946 main/binary-arm64/Packages
+ 2071e4386e874a0f5d9c08bd25a47b47 1106 main/binary-arm64/Packages.gz
+ 648509c399c4212cec4f19677dc6b12a 1176 main/binary-arm64/Packages.xz
  25dcc5d2db0b765c0a4f30374c316bf6 224 main/binary-arm64/Release
- 3ca3d452fc88155bc01ca83042f51c92 761 main/binary-armhf/Packages
- b76be0c5fcc6ac21306d8bcc9a0a3060 509 main/binary-armhf/Packages.gz
- e959a0871f4be9a86062d575a0615d82 588 main/binary-armhf/Packages.xz
+ 79dc70e292c74d5395137457da8f68d0 2944 main/binary-armhf/Packages
+ eaa6439685157e8aac159bc2bb4006b7 1107 main/binary-armhf/Packages.gz
+ 4dbe755f54f4af7df640667de1dea3ab 1176 main/binary-armhf/Packages.xz
  6ea39e70e207a9569f0b6eff7af67a2b 224 main/binary-armhf/Release
 SHA1:
  59001961fe19dec38e391fc0eb70a1ed48dc6ec3 2946 main/binary-amd64/Packages
  c8397fc8ed502d71e216c05106cc116d731d4230 1104 main/binary-amd64/Packages.gz
  a6df32f665f33501de7c9bbe0d078523fe7f5bb0 1172 main/binary-amd64/Packages.xz
  41272c48cf573ded8e46bd458eccaea783c1f6b3 224 main/binary-amd64/Release
- c55629e38612648120801a0c434d2b30ff179e89 761 main/binary-arm64/Packages
- 030f11fdc150579ad11dfdda7fe9a6175de221bc 509 main/binary-arm64/Packages.gz
- bd379b13696735ed1d1a3b347257caac99b67652 588 main/binary-arm64/Packages.xz
+ af0f944faa83b73509392f91df8d16f78ba3a540 2946 main/binary-arm64/Packages
+ 71cbbb2d0d50a9c5d903b787d7e458c720477176 1106 main/binary-arm64/Packages.gz
+ 02fdaff414cafba6a904e96b66c48fbaa534685b 1176 main/binary-arm64/Packages.xz
  44a57ff9db78ac335b4e6c3603e48260294857b8 224 main/binary-arm64/Release
- c55629e38612648120801a0c434d2b30ff179e89 761 main/binary-armhf/Packages
- 030f11fdc150579ad11dfdda7fe9a6175de221bc 509 main/binary-armhf/Packages.gz
- bd379b13696735ed1d1a3b347257caac99b67652 588 main/binary-armhf/Packages.xz
+ 5d95f30bf4cea0eedb529950a75d5c8f43997876 2944 main/binary-armhf/Packages
+ 5161a62ccdee4e34e61737fa04e5cfe086e3063e 1107 main/binary-armhf/Packages.gz
+ c73e3bc02ecd2070fc01d3bff60135fae3b749ed 1176 main/binary-armhf/Packages.xz
  722f765c2017a2a2e47e2bd5dd7b96c8e6c4f4f1 224 main/binary-armhf/Release
 SHA256:
  e0cc8f29723e02aa8a452813646e94dbe83bf78ca9da581913cec15297a6354b 2946 main/binary-amd64/Packages
  77c06058b710d1ebaefb0c4e0c2c6345bb7cd48184271136282c25259a627763 1104 main/binary-amd64/Packages.gz
  99ee25b2932dae0ddec19c5196d9c90d9537cb7a075701375f08a239b6373b6b 1172 main/binary-amd64/Packages.xz
  9260a78c7e61cf35073617cb74e2215a315da9df1278d3e2d1dda011aa21e03a 224 main/binary-amd64/Release
- a52199f578120f2aaaa84274cac6c38f8860909000194af9ddd621bc33104d25 761 main/binary-arm64/Packages
- 9596d607b8ae6fe5e2b0585c73b4b3cf292c5870f0ffe420334393ec39be46e8 509 main/binary-arm64/Packages.gz
- a721ed64c3873ed2d13ec339fca8090ef8099f568141716b4fe2d5afede55939 588 main/binary-arm64/Packages.xz
+ 9a75c206b4a9d7312ff8514386dc721231c067e5797fc610407cc049fef631fa 2946 main/binary-arm64/Packages
+ a9940654ecb833851e79800ced9cd31781982ea05101407e0f053fd80be77063 1106 main/binary-arm64/Packages.gz
+ ba7f7efa98cd5001c191227f1e834ef2555728bc33d87201cf5b647bf05f51c9 1176 main/binary-arm64/Packages.xz
  b91ddb5544effe02f3f04076adb25c2e431f531f092e8d09a30f221cfdf6b166 224 main/binary-arm64/Release
- a52199f578120f2aaaa84274cac6c38f8860909000194af9ddd621bc33104d25 761 main/binary-armhf/Packages
- 9596d607b8ae6fe5e2b0585c73b4b3cf292c5870f0ffe420334393ec39be46e8 509 main/binary-armhf/Packages.gz
- a721ed64c3873ed2d13ec339fca8090ef8099f568141716b4fe2d5afede55939 588 main/binary-armhf/Packages.xz
+ 575b19528b460d0d9e5a666853cda5a725765e5df199f153922ba8e73f09118a 2944 main/binary-armhf/Packages
+ c6968f8c100e1e7d2a2539bcf44b1840ef7514fec3707eefb179592860cfbaca 1107 main/binary-armhf/Packages.gz
+ 66d84f88182d083fcb5c01f628f341a596b90ba9ecf526397ec05b1075c35756 1176 main/binary-armhf/Packages.xz
  ad950be58184839e2e9db7069729d09009f2e92e643ee41616299a742d3b7139 224 main/binary-armhf/Release

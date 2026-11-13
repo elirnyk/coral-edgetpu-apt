@@ -16,3 +16,63 @@ Description: DKMS source for the gasket driver
  Gasket (Google ASIC Software, Kernel Extensions, and Tools) provides
  support for Google ASICs, specificially the Coral EdgeTPU.
 
+Package: libedgetpu-dev
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+resolute
+Architecture: arm64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 29
+Depends: libedgetpu1-std (= 16.0tf2.19.1-1+resolute) | libedgetpu1 (= 16.0tf2.19.1-1+resolute)
+Homepage: https://coral.ai/
+Priority: optional
+Section: libdevel
+Filename: pool/main/libe/libedgetpu/libedgetpu-dev_16.0tf2.19.1-1+resolute_arm64.deb
+Size: 6512
+SHA256: 2c7fb52334216bad144eab8c4f4d523386495f5bdd7ae4a74ba75a7ae48cc15f
+SHA1: 91eaa595843059ba71edacba345068bf6f086a09
+MD5sum: 7607ce3149b059a849d1ee2a8203f38a
+Description: Development files for libedgetpu
+ This package contains C++ Header files for libedgetpu.so
+
+Package: libedgetpu1-max
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+resolute
+Architecture: arm64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 1129
+Depends: libc6, libgcc1, libstdc++6, libusb-1.0-0, debconf (>= 0.5) | debconf-2.0
+Conflicts: libedgetpu1, libedgetpu1-legacy
+Provides: libedgetpu1 (= 16.0tf2.19.1-1+resolute)
+Multi-Arch: same
+Homepage: https://coral.ai/
+Priority: optional
+Section: misc
+Filename: pool/main/libe/libedgetpu/libedgetpu1-max_16.0tf2.19.1-1+resolute_arm64.deb
+Size: 339516
+SHA256: 64f5fc03f9fdb9efd23bae6842834f3097a064f6eed446177d96cc79df143103
+SHA1: b761a10b3af2df41d6bb178ee82d43a16a6a55af
+MD5sum: 420f3d5be3727beab0c19964adb8f95b
+Description: Support library for Edge TPU
+ Support library (max speed) for the Edge TPU
+
+Package: libedgetpu1-std
+Source: libedgetpu
+Version: 16.0tf2.19.1-1+resolute
+Architecture: arm64
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 1125
+Depends: libc6, libgcc1, libstdc++6, libusb-1.0-0
+Conflicts: libedgetpu1, libedgetpu1-legacy
+Provides: libedgetpu1 (= 16.0tf2.19.1-1+resolute)
+Multi-Arch: same
+Homepage: https://coral.ai/
+Priority: optional
+Section: misc
+Filename: pool/main/libe/libedgetpu/libedgetpu1-std_16.0tf2.19.1-1+resolute_arm64.deb
+Size: 339632
+SHA256: a19dcbab254f7978b2c5f4551b123d7c3e263514b822dd67901f7eab33d218de
+SHA1: 8c1bc29425b259a3688a66721c4dd445a7626be7
+MD5sum: 61f70c2f1989a0315901e74c5c82d2dd
+Description: Support library for Edge TPU
+ Support library (standard speed) for the Edge TPU
+

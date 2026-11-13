@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: trixie
 Codename: trixie
-Date: Fri, 13 Nov 2026 15:46:03 UTC
+Date: Fri, 13 Nov 2026 15:52:27 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
@@ -50,17 +50,17 @@ SHA256:
  e4703592b5504959be74c9efd0adaeda7ca87c1010cbe267cb63b2cb56d79ef2 213 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3MLsACgkQ/wYX4jnW
-5NqdXA/9EutaXopStbZg7hc8IzznAn1xK7192cUCttby4SxeBmXsNT5WJ0hkyTPp
-ykgonn4rHQmYApwb5MmUjV6qNfV/Boug6yGVS2lummkpZaDfN0NAtbbW3QhW7a9W
-o9WDoa4ddgTHvE0sJAKuMmKZSQ7FmZbAguqablN5OV2sP0xkNROg6/ch0uYeJB8A
-/etdbaNM8B6E2UXfGXULyISaQyDKunmMAjb1vKWotITv4brZgkRbwNRMpG/6BzCn
-46TB7Z+l+CcTqeLRQI5UmAczaJz4GJH5j1CpfeE3GT/MRwQabW6t31pVKNowoSo8
-G8k6njBDH/Ifee7dOMzhBhRtQkS3Hx5r1qFh8m2QrSOM0GWJKtdTJKotEql5+E66
-qERrEZuzRWLYyauWakIB6jnkEfuuIJ7t61N2arTt3p9Q5Zusa+wi2u1IgYCHag9C
-sZpz8WiLA9VBmKm+6OXY650gpgpUID0KvfBekIHd7a6HJKK6M+Y82QDtwH6c69aq
-WRG5viBZzb12FbMBIX1tLd7oFve/7Cws14iZ7et71AQese0y4yXaqZXYxspQ+C0L
-/mTPOCsaG0AX5zzt18T1lsW/2VysMT+PW5o9xbEIKtBdZhLAHJQxd7MvxC7PmeIe
-n94iXCjDedxeIawmgyGwNglswGt7CiyzNIQ5ntrXoob+vRIziPc=
-=qyWF
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3MjwACgkQ/wYX4jnW
+5NoWWQ/+IA5XD7SEfLGp+OrapmqmR/6sDHDF9C0UCNu3gMJcnaSPdr8jGocIhVSu
+AuZhsiB4aMT6xsnLPvsTF61FxynyXv0Di07uKd4DCV/aKQXtp+CNB1sEZ+efB85u
+Da6T4QpddKACeoQcpvFeDxL2w6FtBLvD79Ll0hCH/xhPFdzE7+Rc5UPlfTFUa25n
+JwCe1u4TESZLCkkKTk4+Mb1bu7+YSBamTuqbw/kZyC9CNGcw8zSg7WISvj3beR+8
+ivc7DVBi8wYw49lbD9ecvHndsIsDC76zLJLzr9CYG0L8PNdH2/305RqCci9R079V
+kW3QDDfaiOUmq8KT3RmjGbEVyMoyZjXfj/7sDJwpaLMsWFUvidKLpEfQ47kfBa/4
+aLhqjpOO8TodLaeJFtl44TUQNUMdU2zIsZM/qVWxRFLvrO7yvSOfemkdyrn7lELo
+lhrtk5D5oXfqbFN6Dtl9xUCoZP9xP2reBPPR5yWm6lW6AMflzo1ynsU7WrsODAkx
+caTlrYOxpl5FEF4kzrEmjPHbomqVCyRBS7p4bShzrGnn8YzJx5XcW9b4OaV/HoSa
+jRyd3wVaXu1tOL8W1kg1+VvjSh13dzom9Yc5+305wJQ7vvCPaKtZkF39JXYrK9AH
+ZLr1++y3Scyl9acPrzUeu4J2jsay+CPJqRWvr/WqXX+gI0398F8=
+=oIZJ
 -----END PGP SIGNATURE-----
