@@ -1,0 +1,18 @@
+Package: gasket-dkms
+Version: 1.0-19~modern2+resolute
+Architecture: all
+Maintainer: Coral <coral-support@google.com>
+Installed-Size: 260
+Depends: dkms (>= 2.1.0.0), passwd, linux-headers-686-pae | linux-headers-amd64 | linux-headers-generic | linux-headers
+Homepage: https://coral.withgoogle.com/
+Priority: optional
+Section: kernel
+Filename: pool/main/g/gasket-dkms/gasket-dkms_1.0-19~modern2+resolute_all.deb
+Size: 52390
+SHA256: 74e10f8e0e6ac4eb5f0f1d0b41a6b830a65959ea441bbb21bb5eb99ba63c8403
+SHA1: 87ab44c7e8f66de4035f2a99f9216ce0ca4543ae
+MD5sum: 1ee9bcf8f66bf032c53aa9fa07d2c3f9
+Description: DKMS source for the gasket driver
+ Gasket (Google ASIC Software, Kernel Extensions, and Tools) provides
+ support for Google ASICs, specificially the Coral EdgeTPU.
+

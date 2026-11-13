@@ -1,0 +1,6 @@
+Archive: resolute
+Component: main
+Origin: coral-edgetpu-apt
+Label: Coral Edge TPU APT (unofficial)
+Architecture: armhf
+Description: Unofficial Coral Edge TPU packages built from upstream source - Ubuntu 26.04 LTS (resolute)

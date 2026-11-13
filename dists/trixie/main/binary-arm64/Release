@@ -1,0 +1,6 @@
+Archive: trixie
+Component: main
+Origin: coral-edgetpu-apt
+Label: Coral Edge TPU APT (unofficial)
+Architecture: arm64
+Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)

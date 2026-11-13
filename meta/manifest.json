@@ -1,0 +1,42 @@
+{
+  "builds": [
+    {
+      "arches": [
+        "all"
+      ],
+      "component": "gasket",
+      "date": "2026-11-13T12:57:08Z",
+      "image": "ubuntu:26.04",
+      "patches": [],
+      "ref": "main",
+      "sha": "a1058f6b07e6a83addd9ae507aba4988980fdd04",
+      "suite": "resolute",
+      "upstream_version": "1.0-19~modern2",
+      "version": "1.0-19~modern2+resolute"
+    },
+    {
+      "arches": [
+        "all"
+      ],
+      "component": "gasket",
+      "date": "2026-11-13T12:55:38Z",
+      "image": "debian:trixie",
+      "patches": [],
+      "ref": "main",
+      "sha": "a1058f6b07e6a83addd9ae507aba4988980fdd04",
+      "suite": "trixie",
+      "upstream_version": "1.0-19~modern2",
+      "version": "1.0-19~modern2+trixie"
+    }
+  ],
+  "schema": 1,
+  "updated": "2026-11-13T13:13:04Z",
+  "upstreams": {
+    "gasket": {
+      "date": "2026-11-13T12:55:38Z",
+      "ref": "main",
+      "sha": "a1058f6b07e6a83addd9ae507aba4988980fdd04",
+      "version": "1.0-19~modern2"
+    }
+  }
+}

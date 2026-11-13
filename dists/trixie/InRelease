@@ -1,0 +1,66 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: coral-edgetpu-apt
+Label: Coral Edge TPU APT (unofficial)
+Suite: trixie
+Codename: trixie
+Date: Fri, 13 Nov 2026 13:13:03 UTC
+Architectures: amd64 arm64 armhf
+Components: main
+Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
+MD5Sum:
+ 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-amd64/Packages
+ f109480d66c032a0ab82373559477364 511 main/binary-amd64/Packages.gz
+ 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-amd64/Packages.xz
+ 33c7c6bb760cf66002fd4d8dfe0ccf96 213 main/binary-amd64/Release
+ 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-arm64/Packages
+ f109480d66c032a0ab82373559477364 511 main/binary-arm64/Packages.gz
+ 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-arm64/Packages.xz
+ ed029a4fd6883a52cba9a002285d9cd4 213 main/binary-arm64/Release
+ 3953978b25ee1d9341ae0cee27dd8154 757 main/binary-armhf/Packages
+ f109480d66c032a0ab82373559477364 511 main/binary-armhf/Packages.gz
+ 4828decbf68b4ce6bb3e73c7e3a358b6 584 main/binary-armhf/Packages.xz
+ 1763d0a4530d7a985793c3bf27279be2 213 main/binary-armhf/Release
+SHA1:
+ f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-amd64/Packages
+ 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-amd64/Packages.gz
+ 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-amd64/Packages.xz
+ c9ed252ae1e04b09b3d62150e85a0ba577b685b2 213 main/binary-amd64/Release
+ f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-arm64/Packages
+ 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-arm64/Packages.gz
+ 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-arm64/Packages.xz
+ 2fe1497358cd4d16c7f8c826f7c0ff6306b585ed 213 main/binary-arm64/Release
+ f8c2cbafa68b55dfb42b65dac0bc895afe797580 757 main/binary-armhf/Packages
+ 50cd954d9d008229afe77778f622503468c68dd2 511 main/binary-armhf/Packages.gz
+ 84c1ace76935b0d32fecf340a98e01adf88f8a3b 584 main/binary-armhf/Packages.xz
+ 8f6ba106c92ec0ed143df131072b89b13c330c7c 213 main/binary-armhf/Release
+SHA256:
+ 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-amd64/Packages
+ 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-amd64/Packages.gz
+ 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-amd64/Packages.xz
+ ca7981a27632cba2a8c8bf80a320f41c98c7a05e684a06f5755a47a8fc63a5cb 213 main/binary-amd64/Release
+ 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-arm64/Packages
+ 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-arm64/Packages.gz
+ 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-arm64/Packages.xz
+ fd8945335271a13d5e6ba317f13222d7375793342cf3a5d5f09d8b082bafa9f3 213 main/binary-arm64/Release
+ 1ea554ce7522859b98432fe26b9ce99b97a374040e0193d05f18eaef9eade0be 757 main/binary-armhf/Packages
+ 96f9c2c87ab753d244759988b4d48291d4a8530bec8d841dbefc9a11d749ad4b 511 main/binary-armhf/Packages.gz
+ 3b6b18ae07641e1d03e79fe6e6fd21afe17dd7c4705a64a67c7409d5df7f01d1 584 main/binary-armhf/Packages.xz
+ e4703592b5504959be74c9efd0adaeda7ca87c1010cbe267cb63b2cb56d79ef2 213 main/binary-armhf/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3DN8ACgkQ/wYX4jnW
+5NqeIhAAp7ZU3iBZZXvqEfe8cn7om0psUAkIwBfVD0KGA9o+FutyW7qFejYsnQ+N
+L/hYx+B5zkGp2P+YFMq4AV1hHm++MisQNYPowKizHxHttvSM6GWfTdMOz8H6pn/O
+h8ynOFxOdhywETdZH0QYVnC57bqDt3AQiUaEOhdTQLYMDsbs1n6O3xVecrqljWWb
+9zLRHmH1r651jppW4C3PJxldb+ugcbP6NTGfcs281mKiOWvAz/SbDYyKw96W20dJ
+p0OKdeZU+zm8xE55CttVbrAnctjPg+ehYkfOSKQ6ROukCOz7gd1pstIBStyiA7sE
+kWnz8B3K8yk3pLg8QDHGIw+kCn0qBUP76V+KR4JGvySH5/Zd9Ca8pw6xW2BTbn8R
+pRq3GLcqVHrULeFN0LY0SEyFC8kCsYO+4zjiSySozyARYNjbItpUIAG3nDZynfuw
+SkU1bEHakXHHaXUv9EkPs+M2vZ3hxdHrBtyTJyEOAuBFPTq3A3RhKVfnIkc82cSe
+liBVvkzLmNwnCOLV5enyHVDUYf7yQP2t23vzcysuNR7iCA7MYlF1laj8u4VHx90h
+YQ1cxbT43WycZ3bnqnOEagFM4g3jc2EnJxVXW5xFTAxUDK7Y0jFmIIjeFcOQXA2I
+0P/hRtNHbPHG37mkyb+AOU7Ndl8rItD732RXqYEEiVePnKhFd/c=
+=pkfe
+-----END PGP SIGNATURE-----

@@ -1,0 +1,14 @@
+# reprepro options, copied to <repo>/conf/options on the gh-pages branch.
+#
+# The repository root on gh-pages is the reprepro basedir, so dists/ and pool/
+# end up where APT expects them:
+#   https://<owner>.github.io/<repo>/dists/<suite>/InRelease
+#   https://<owner>.github.io/<repo>/pool/main/...
+#
+# `conf/` and `db/` are therefore also published. They contain no secrets:
+# the signing key lives only in the CI GNUPGHOME.
+#
+# The base directory itself is set with `reprepro -b <repo>`; output files are
+# written relative to the basedir (the repository root), so no outdir override is
+# needed. An explicit `outdir .` would be resolved against the process working
+# directory instead, which is wrong in CI.

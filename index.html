@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coral Edge TPU APT (unofficial)</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: system-ui, sans-serif; line-height: 1.5; max-width: 52rem;
+       margin: 2rem auto; padding: 0 1rem; }
+code, pre { font-family: ui-monospace, monospace; }
+pre { background: rgba(127,127,127,.15); padding: .75rem; overflow-x: auto;
+      border-radius: .35rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border-bottom: 1px solid rgba(127,127,127,.35); padding: .4rem .6rem;
+         text-align: left; }
+.note { border-left: .25rem solid rgba(127,127,127,.5); padding-left: .75rem; }
+</style>
+</head>
+<body>
+<h1>Coral Edge TPU APT (unofficial)</h1>
+<p>Unofficial Coral Edge TPU packages built from upstream source</p>
+
+<p class="note"><strong>Unofficial.</strong> Not affiliated with, endorsed by, or supported by
+Google, Coral, Debian, Ubuntu, or the upstream maintainers.</p>
+
+<h2>Signing key</h2>
+<p>Fingerprint: <code>22234DCCC8AAB3475B5F495CBB1DFCCA79E3A376</code></p>
+<p>
+<a href="coral-edgetpu.gpg">coral-edgetpu.gpg</a> ·
+<a href="coral-edgetpu.asc">coral-edgetpu.asc</a> ·
+<a href="coral-edgetpu.gpg.sha256">coral-edgetpu.gpg.sha256</a>
+</p>
+
+<h2>Install</h2>
+<pre>sudo install -d -m 0755 /usr/share/keyrings
+curl -fsSL https://elirnyk.github.io/coral-edgetpu-apt/coral-edgetpu.gpg \
+  | sudo tee /usr/share/keyrings/coral-edgetpu.gpg &gt;/dev/null
+sudo tee /etc/apt/sources.list.d/coral-edgetpu-apt.sources &gt;/dev/null &lt;&lt;'EOF'
+Types: deb
+URIs: https://elirnyk.github.io/coral-edgetpu-apt
+Suites: trixie
+Components: main
+Architectures: amd64 arm64 armhf
+Signed-By: /usr/share/keyrings/coral-edgetpu.gpg
+EOF
+sudo apt update
+sudo apt install libedgetpu1-std
+sudo apt install gasket-dkms   # PCIe/M.2 devices only</pre>
+
+<h2>Suites and versions</h2>
+<table>
+<thead><tr><th>Suite</th><th>System</th><th>Architectures</th><th>Packages</th><th>Version</th></tr></thead>
+<tbody>
+<tr><td><code>trixie</code></td><td>Debian 13 (trixie)</td><td><code>amd64 arm64 armhf</code></td><td>libedgetpu1-std, libedgetpu1-max, libedgetpu-dev</td><td><code>not published yet</code></td></tr>
+<tr><td><code>trixie</code></td><td>Debian 13 (trixie)</td><td><code>amd64 arm64 armhf</code></td><td>gasket-dkms</td><td><code>1.0-19~modern2+trixie</code></td></tr>
+<tr><td><code>resolute</code></td><td>Ubuntu 26.04 LTS (resolute)</td><td><code>amd64 arm64 armhf</code></td><td>libedgetpu1-std, libedgetpu1-max, libedgetpu-dev</td><td><code>not published yet</code></td></tr>
+<tr><td><code>resolute</code></td><td>Ubuntu 26.04 LTS (resolute)</td><td><code>amd64 arm64 armhf</code></td><td>gasket-dkms</td><td><code>1.0-19~modern2+resolute</code></td></tr>
+</tbody>
+</table>
+
+<h2>Upstream</h2>
+<table>
+<thead><tr><th>Component</th><th>Branch</th><th>Commit</th><th>Upstream version</th></tr></thead>
+<tbody>
+<tr><td>gasket</td><td><code>main</code></td><td><code>a1058f6b07e6</code></td><td><code>1.0-19~modern2</code></td></tr>
+</tbody>
+</table>
+
+<h2>Links</h2>
+<ul>
+<li><a href="https://github.com/elirnyk/coral-edgetpu-apt">Source repository and build logs</a></li>
+<li><a href="meta/manifest.json">meta/manifest.json</a> — build provenance</li>
+<li><a href="licenses/Apache-2.0.txt">Apache-2.0</a> (libedgetpu) ·
+    <a href="licenses/GPL-2.0.txt">GPL-2.0</a> (gasket-dkms)</li>
+</ul>
+</body>
+</html>
