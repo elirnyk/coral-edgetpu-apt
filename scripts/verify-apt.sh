@@ -182,7 +182,7 @@ Types: deb
 URIs: ${PAGES_URL}
 Suites: ${SUITE}
 Components: main
-Architectures: $(python3 "${CONFIG_ROOT}/scripts/lib/config.py" --arches "${SUITE}" 2>/dev/null || echo "${ARCH}")
+Architectures: ${ARCH}
 Signed-By: ${KEYRING_INSTALLED}
 EOF
 as_root cp "${SOURCES}" "/etc/apt/sources.list.d/coral-edgetpu.sources"
