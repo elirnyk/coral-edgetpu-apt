@@ -5,7 +5,7 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: trixie
 Codename: trixie
-Date: Fri, 13 Nov 2026 13:13:03 UTC
+Date: Fri, 13 Nov 2026 15:27:26 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Debian 13 (trixie)
@@ -50,17 +50,17 @@ SHA256:
  e4703592b5504959be74c9efd0adaeda7ca87c1010cbe267cb63b2cb56d79ef2 213 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3DN8ACgkQ/wYX4jnW
-5NqeIhAAp7ZU3iBZZXvqEfe8cn7om0psUAkIwBfVD0KGA9o+FutyW7qFejYsnQ+N
-L/hYx+B5zkGp2P+YFMq4AV1hHm++MisQNYPowKizHxHttvSM6GWfTdMOz8H6pn/O
-h8ynOFxOdhywETdZH0QYVnC57bqDt3AQiUaEOhdTQLYMDsbs1n6O3xVecrqljWWb
-9zLRHmH1r651jppW4C3PJxldb+ugcbP6NTGfcs281mKiOWvAz/SbDYyKw96W20dJ
-p0OKdeZU+zm8xE55CttVbrAnctjPg+ehYkfOSKQ6ROukCOz7gd1pstIBStyiA7sE
-kWnz8B3K8yk3pLg8QDHGIw+kCn0qBUP76V+KR4JGvySH5/Zd9Ca8pw6xW2BTbn8R
-pRq3GLcqVHrULeFN0LY0SEyFC8kCsYO+4zjiSySozyARYNjbItpUIAG3nDZynfuw
-SkU1bEHakXHHaXUv9EkPs+M2vZ3hxdHrBtyTJyEOAuBFPTq3A3RhKVfnIkc82cSe
-liBVvkzLmNwnCOLV5enyHVDUYf7yQP2t23vzcysuNR7iCA7MYlF1laj8u4VHx90h
-YQ1cxbT43WycZ3bnqnOEagFM4g3jc2EnJxVXW5xFTAxUDK7Y0jFmIIjeFcOQXA2I
-0P/hRtNHbPHG37mkyb+AOU7Ndl8rItD732RXqYEEiVePnKhFd/c=
-=pkfe
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LF4ACgkQ/wYX4jnW
+5NqOcw/9GV3gF8WtdFtiY6S8PMk/ZRlOSWEqJH1E/3GxrJJSlq6+wdcuH7r6rlXs
+DbN6r89/THV3A8KfLaEU6Zo/Jms5Vo4RkNceswaaXZhFpL377PGsKvs3Bg89YnXA
+YBD03Ytj3HBS6cgWobk7Xl0OFa2nNJaPMDDCQSAWY62WiASXiAwU4CuLPIWonO4e
+6LQW5Ra7g2DaQnrof8vwwIkfMHsdhHdRBTsOYs/YDaR5ny9NHD2ANaE+VnARwT0C
+XWz8phybE6wFUUuaeIZlxlpsNLQxDCdU3T9Fiwm/jhYYSpDcH4vd6dbNYqRzWJCA
+dtw4t9R5uinPdcE7vdAyqnaJmxwxCGK8aXF0VWNI5Yq5lbbFmVW5tJSNGlwFj7r0
+oyxOEJhoBkZi5IVP9WVnsmP8s0OEeNyGtYI98tC68CEJC8fzBBzVpWW2TY99rGBa
+oqqamacDELgCPA+Fsvm3CqUqei/WzRCFJkSRVd6Ri2XZjNMfoKB6wvvKjhlc47x9
+pzkHA/wWnat4ynt09I8POrHVEva2HMt3vn58mA96dnExQLFj4P99XQir1GX92zNw
+1/AVnpeTaVy8wv4mDuD6RIguPWqa0xI5Dce712d+kGqJqK+QyKIDpyaTWQBA7qEe
+sPEqOCUle6yivYag2b8NX3vxX71Vp8cHR34gUwO1My/1L09ecC0=
+=Xnrm
 -----END PGP SIGNATURE-----

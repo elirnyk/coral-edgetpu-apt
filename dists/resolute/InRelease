@@ -5,14 +5,14 @@ Origin: coral-edgetpu-apt
 Label: Coral Edge TPU APT (unofficial)
 Suite: resolute
 Codename: resolute
-Date: Fri, 13 Nov 2026 13:13:04 UTC
+Date: Fri, 13 Nov 2026 15:27:27 UTC
 Architectures: amd64 arm64 armhf
 Components: main
 Description: Unofficial Coral Edge TPU packages built from upstream source - Ubuntu 26.04 LTS (resolute)
 MD5Sum:
- 3ca3d452fc88155bc01ca83042f51c92 761 main/binary-amd64/Packages
- b76be0c5fcc6ac21306d8bcc9a0a3060 509 main/binary-amd64/Packages.gz
- e959a0871f4be9a86062d575a0615d82 588 main/binary-amd64/Packages.xz
+ a2e1711574845abd7ee0d9b9b9b6f8f8 2946 main/binary-amd64/Packages
+ 3c6c4bd284a427a7aae386efbc8e82dc 1104 main/binary-amd64/Packages.gz
+ 99b6f259de8d0ee643353d90955a96c4 1172 main/binary-amd64/Packages.xz
  23f14e94d62c7ce58671f2ff0d5fbdb4 224 main/binary-amd64/Release
  3ca3d452fc88155bc01ca83042f51c92 761 main/binary-arm64/Packages
  b76be0c5fcc6ac21306d8bcc9a0a3060 509 main/binary-arm64/Packages.gz
@@ -23,9 +23,9 @@ MD5Sum:
  e959a0871f4be9a86062d575a0615d82 588 main/binary-armhf/Packages.xz
  6ea39e70e207a9569f0b6eff7af67a2b 224 main/binary-armhf/Release
 SHA1:
- c55629e38612648120801a0c434d2b30ff179e89 761 main/binary-amd64/Packages
- 030f11fdc150579ad11dfdda7fe9a6175de221bc 509 main/binary-amd64/Packages.gz
- bd379b13696735ed1d1a3b347257caac99b67652 588 main/binary-amd64/Packages.xz
+ 59001961fe19dec38e391fc0eb70a1ed48dc6ec3 2946 main/binary-amd64/Packages
+ c8397fc8ed502d71e216c05106cc116d731d4230 1104 main/binary-amd64/Packages.gz
+ a6df32f665f33501de7c9bbe0d078523fe7f5bb0 1172 main/binary-amd64/Packages.xz
  41272c48cf573ded8e46bd458eccaea783c1f6b3 224 main/binary-amd64/Release
  c55629e38612648120801a0c434d2b30ff179e89 761 main/binary-arm64/Packages
  030f11fdc150579ad11dfdda7fe9a6175de221bc 509 main/binary-arm64/Packages.gz
@@ -36,9 +36,9 @@ SHA1:
  bd379b13696735ed1d1a3b347257caac99b67652 588 main/binary-armhf/Packages.xz
  722f765c2017a2a2e47e2bd5dd7b96c8e6c4f4f1 224 main/binary-armhf/Release
 SHA256:
- a52199f578120f2aaaa84274cac6c38f8860909000194af9ddd621bc33104d25 761 main/binary-amd64/Packages
- 9596d607b8ae6fe5e2b0585c73b4b3cf292c5870f0ffe420334393ec39be46e8 509 main/binary-amd64/Packages.gz
- a721ed64c3873ed2d13ec339fca8090ef8099f568141716b4fe2d5afede55939 588 main/binary-amd64/Packages.xz
+ e0cc8f29723e02aa8a452813646e94dbe83bf78ca9da581913cec15297a6354b 2946 main/binary-amd64/Packages
+ 77c06058b710d1ebaefb0c4e0c2c6345bb7cd48184271136282c25259a627763 1104 main/binary-amd64/Packages.gz
+ 99ee25b2932dae0ddec19c5196d9c90d9537cb7a075701375f08a239b6373b6b 1172 main/binary-amd64/Packages.xz
  9260a78c7e61cf35073617cb74e2215a315da9df1278d3e2d1dda011aa21e03a 224 main/binary-amd64/Release
  a52199f578120f2aaaa84274cac6c38f8860909000194af9ddd621bc33104d25 761 main/binary-arm64/Packages
  9596d607b8ae6fe5e2b0585c73b4b3cf292c5870f0ffe420334393ec39be46e8 509 main/binary-arm64/Packages.gz
@@ -50,17 +50,17 @@ SHA256:
  ad950be58184839e2e9db7069729d09009f2e92e643ee41616299a742d3b7139 224 main/binary-armhf/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3DOAACgkQ/wYX4jnW
-5Np8IQ/+IiXDMkz/taHCah8utaaUVU3kzfZszttNOmCNJIz6wWyuI30akCP0+aAI
-fEzXmEblf5ykgIgu/fS3FK0SO/RT7U/2dv6i+VKW4vfmWLied+dym+tCXcPANdvK
-P4/c6wOYa+aMzJaNjHi6jgKEhjk6wDGFDHsHpV+HyO2Hd0Tmv5GtOFqk/C7oHhKj
-3Hn9p7CCSFFtQ3eSzzHOuxpdtkDl12XkptyJqJgG5y3J4FNqtNTwnjwPJsAYFID5
-IixeVtXN0cBXNSaeTNjCIUUOH6EmPtnlzV25FpQrrb4iP6urx++Zj/SsjjQ+pNyw
-9nlZOQFuaQSubE3QQiFLCr+GaE97FxrWGD/W9sWb7tmxekiuh2/h6I7DG2pEybD2
-DvCws2KcnDzK3BHQHoGfy5UYHMY3l1z6UzziKs0DpSdvEhPwiTgVU9mwfw9c0L2T
-xFZzpVsCoC9WKUpQgpB1vJc5L+KgckFM4zESiAwjXe8WEd82lnhpt+IAgWP1lrf2
-RSj8He37F24UbtmAoADbMvehO3m0W9JzE7qmyUB4HAJBrDaa07S9Q7msem/8rMrA
-LBPDKkLp7J/w2sO1vKCJqU1S8N4OANU/arCwSui5LQ8fskIxVTAn1MWZoL2jdMa3
-4/Y0fj6LQ6sZNwH2O6uptoxM3aL4LkeiioAvu46CAgTWoPpJxHs=
-=9vRN
+iQIzBAEBCgAdFiEEQzRYZBMzPhzm1/6P/wYX4jnW5NoFAmr3LF8ACgkQ/wYX4jnW
+5NqxHhAAkhrRW9NAAeDyGw8DJ5FkOvyaQS01sTf5ou9zvL47HYN9Hyy4Pv9OjTb8
+ShJaoO6EZaENQqyKAchzEU9s+/2j03Xbaux9hr5weDHWVkJKKzkxEEIG7ywFgRxe
+pU5iVkmBMYiJhB3FU1GnnEQTpmZb6YYmz015QlCR3pFrYi4cUHeWpkUfYPBwljn2
+K81qgL1UJYEOj2AtAP2DJSE+wuhPYIBIDrB1z2MT3EA43zRsL0RJjJYDSYEkUaMg
+6WLypGtHxC/v0VdUmWknDaHMzB2Z88QK+v+put/WjOf2QSaAN37H+53C9HlRvgGt
+IpqGPl8EXjU5GVWLX3cgJVGUOqxEcDyLwr4BOQlY8Qg/gawE5BYJKlR1mdsQzg0l
+5cWt9dZIKWndQ8z0D1z3MYIXoVsIHfmFxIou4GaG/OBrpCQ86UYou3/EQ+e+uaDq
+H4XGgBv1f78mBJOWy9vV+Dqq0EWrtd4r3ieZoA3wTyIPxmH9n7nFB3fhJ8sDxPSC
+mkGR85PMBBIIZfIKGiYpTN+y8mt3XYpOSA+ksVgTrLxuUmgm4hNSj8dgzruAzCtf
+yWkhdKE/NF2OC1HXHNt+5CZANdAXF6h6fS/BWg3xfAIH7m7hqhxwir7l8yHonH9U
+YbDtGsGtLbjJjmAA+WM+hAva1q3Y8clZvfv/nZcPxaHamtEtxOI=
+=BqJv
 -----END PGP SIGNATURE-----
