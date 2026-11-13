@@ -116,7 +116,11 @@ bash "${ROOT}/scripts/prune-repo.sh" --repo "${REPO_DIR}" --keep "${KEEP_VERSION
 
 # -------------------------------------------------------- export and sign ----
 log "exporting and signing"
+log "conf/distributions:"
+cat "${REPO_DIR}/conf/distributions" >&2 || true
 reprepro -b "${REPO_DIR}" export
+log "after export:"
+find "${REPO_DIR}/dists" -type f 2>/dev/null | head -50 >&2 || true
 
 # ------------------------------------------------------------------- key ----
 log "writing the public key"
